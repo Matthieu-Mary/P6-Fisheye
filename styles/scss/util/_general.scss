@@ -5,21 +5,10 @@ body {
     margin: 0;
 }
 
-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 90px;
-}
-
 h1 {
     color: var(--primary-1);
     margin-right: 100px;
 }
 
-.logo {
-    height: 50px;
-    margin-left: 100px;
-}
+
 

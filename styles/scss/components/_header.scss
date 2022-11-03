@@ -1,0 +1,25 @@
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    .logo {
+        height: 50px;
+        margin-left: 100px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .logo {
+            margin-left: 0;
+        }
+        h1 {
+            display: none;
+        }
+    }
+}
