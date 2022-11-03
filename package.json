@@ -4,7 +4,7 @@
   "description": "Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass": "sass -w ./styles/scss/index.scss:./styles/css/style.css"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Matthieu-Mary/P6-Fisheye/issues"
   },
-  "homepage": "https://github.com/Matthieu-Mary/P6-Fisheye#readme"
+  "homepage": "https://github.com/Matthieu-Mary/P6-Fisheye#readme",
+  "dependencies": {
+    "sass": "^1.55.0"
+  }
 }

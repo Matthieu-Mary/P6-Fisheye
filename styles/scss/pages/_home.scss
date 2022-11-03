@@ -1,0 +1,35 @@
+.photographer_section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    margin-top: 100px;
+    article {
+        justify-self: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        h2 {
+            color: var(--primary-1);
+            font-size: 36px;
+        }
+        img {
+            height: 200px;
+            width: 200px;
+        }
+        h6 {
+            font-size: 13px;
+            color: #901C1C;
+        }
+        p {
+            font-size: 10px;
+        }
+        span {
+            font-size: 9px;
+            color: #757575;
+        }
+    }
+}
+
+
+
