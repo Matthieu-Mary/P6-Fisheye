@@ -1,26 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Fisheye - photographe </title>
   </head>
+
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="../index.html">
+        <img src="../assets/images/logo.png" class="logo" alt="fisheye logo" />
+      </a>
     </header>
+
     <main id="main">
-      <div class="photograph-header">
+      <div class="photographer-header">
+        <div class="photographer-infos"></div>
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <div class="photographer-img-container"></div>
       </div>
     </main>
+
     <div id="contact_modal">
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="../assets/icons/close.svg" onclick="closeModal()" />
         </header>
 				<form>
 					<div>
@@ -31,7 +39,18 @@
 				</form>
 			</div>
 		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
+
+    <!-- API -->
+    <script src="../scripts/api/Api.js"></script>
+
+    <!-- PHOTOGRAPHER FACTORY -->
+    <script src="../scripts/factories/PhotographerFactory.js"></script>
+    
+    <!-- PAGE -->
+    <script src="/scripts/pages/Photographer.js"></script>
+
+    <!-- CONTACT FORM -->
+    <script src="../scripts/utils/contactForm.js"></script>
+    
   </body>
 </html>

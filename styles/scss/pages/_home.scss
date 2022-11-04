@@ -1,7 +1,7 @@
 .photographer_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
+    gap: 50px;
     margin: 70px auto;
     article {
         justify-self: center;
@@ -9,25 +9,34 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        h2 {
-            color: var(--primary-1);
-            font-size: 36px;
-        }
-        img {
-            height: 200px;
-            width: 200px;
-            border-radius: 50%;
-        }
-        h6 {
-            font-size: 13px;
-            color: #901C1C;
-        }
-        p {
-            font-size: 10px;
-        }
-        span {
-            font-size: 9px;
-            color: #757575;
+        a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            
+            h2 {
+                color: var(--primary-1);
+                font-size: 36px;
+            }
+            img {
+                height: 200px;
+                width: 200px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+            h6 {
+                font-size: 13px;
+                color: #901C1C;
+            }
+            p {
+                font-size: 10px;
+            }
+            span {
+                font-size: 9px;
+                color: #757575;
+            }
         }
     }
 }
