@@ -34,32 +34,3 @@ function PhotographersHomepage(data) {
     }
     return { name, id, picture, getUserCardDOM }
 }
-
-const displayPhotographerCard = (data) => {
-
-    const { name, city, country, tagline, portrait} = data;
-    const picture = `assets/photographers/${portrait}`;
-
-    
-    const photographerInfos = document.querySelector(".photographer-infos");
-    const photographerImgContainer = document.querySelector(".photographer-img-container")
-
-    const createPhotographerCard = () => {
-        const h1 = document.createElement("h1");
-        h1.textContent = name;
-        const h6 = document.createElement("h6");
-        h6.textContent = `${city}, ${country}`;
-        const p = document.createElement("p");
-        p.textContent = tagline;
-        photographerInfos.appendChild(h1);
-        photographerInfos.appendChild(h6);
-        photographerInfos.appendChild(p);
-
-
-        const img = document.createElement("img");
-        img.setAttribute("src", picture);
-        photographerImgContainer.appendChild(img);
-    }
-
-    return { name, id, picture, createPhotographerCard }
-}

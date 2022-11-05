@@ -53,11 +53,14 @@
     margin: 35px auto;
   }
 }
-.photograph-header {
+.photographer-header {
   background-color: #FAFAFA;
   height: 300px;
   margin: 0 100px;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
 }
 
 .contact_button {
