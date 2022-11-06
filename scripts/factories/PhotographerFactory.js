@@ -37,7 +37,7 @@ function photographerHomepage(data) {
         return (article);
     }
 
-    return { getUsersCardsHome }
+    return { name, getUsersCardsHome }
 }
 
 

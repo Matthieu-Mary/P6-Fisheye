@@ -28,10 +28,12 @@ async function getRightMedias(medias) {
     return results
 }
 
-async function displayMedias(medias) {
+async function displayMedias(medias, photographers) {
+    // Add photographer because photographer name is needed to display the rights images
+    const rightPhotographer = await getRightPhotographer(photographers);
     const rightMedias = await getRightMedias(medias);
     rightMedias.forEach(media => {
-        const mediaModel = MediaFactory(media);
+        const mediaModel = MediaFactory(media, rightPhotographer);
         mediaModel.createMediaCard()
     })
 }
@@ -43,7 +45,7 @@ async function initPhotographerAndMedias() {
     const { medias } = await getMedias();
 
     displayPhotographerCard(photographers);
-    displayMedias(medias);
+    displayMedias(medias, photographers);
 }
 
 initPhotographerAndMedias();
