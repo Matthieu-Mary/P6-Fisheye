@@ -1,11 +1,15 @@
-function PhotographersHomepage(data) {
 
+// Display photographers card on Homepage.
+function photographerHomepage(data) {
+    
     const { name, id, city, country, tagline, price, portrait} = data;
 
     const picture = `assets/photographers/${portrait}`;
-    const url = `.././pages/photographer.html?id=${id}`;
-
-    function getUserCardDOM() {
+    
+    function getUsersCardsHome() {
+        
+        const url = `.././pages/photographer.html?id=${id}`;
+    
         const article = document.createElement( 'article' );
         const link = document.createElement( 'a' );
         link.href = url;
@@ -32,5 +36,52 @@ function PhotographersHomepage(data) {
         link.appendChild(span)
         return (article);
     }
-    return { name, id, picture, getUserCardDOM }
+
+    return { getUsersCardsHome }
+}
+
+
+
+// Display Photographer header card on photographer page
+function photographerPage(data) {
+
+    const { name, city, country, tagline, portrait } = data;
+
+    const picture = `../assets/photographers/${portrait}`;
+
+    function getUserCardHeader() {
+
+        const photographerHeader = document.querySelector(".photographer-header")
+
+        const photographerInfos = document.createElement("div");
+        photographerInfos.classList.add("photographer-infos");
+        const h1 = document.createElement("h1");
+        h1.textContent = name;
+        const h6 = document.createElement("h6");
+        h6.textContent = `${city}, ${country}`;
+        const p = document.createElement("p");
+        p.textContent = tagline;
+        photographerInfos.appendChild(h1);
+        photographerInfos.appendChild(h6);
+        photographerInfos.appendChild(p);   
+
+        const contactBtn = document.createElement("button");
+        contactBtn.classList.add("contact_button");
+        contactBtn.onClick = displayModal; //A revoir
+        contactBtn.textContent = "Contactez-moi";
+
+        const img = document.createElement("img");
+        img.setAttribute("src", picture);
+
+        photographerHeader.appendChild(photographerInfos);
+        photographerHeader.appendChild(contactBtn);
+        photographerHeader.appendChild(img);
+        
+        return { photographerHeader }
+        
+    }
+
+
+    return { getUserCardHeader }
+
 }
