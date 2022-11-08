@@ -9,9 +9,9 @@ const getRightPhotographer = async (photographers) => {
     const id = await getId();
     // Use Filter with id to find right photographer and display it in header div
     const result = photographers.filter(photographer => photographer.id == id )
+    
     return result[0]       
 }
-
 
 // ---------- PHOTOGRAPHER HEADER CARD ----------
 async function displayPhotographerCard(photographers) {
@@ -36,6 +36,8 @@ async function displayMedias(medias, photographers) {
         const mediaModel = MediaFactory(media, rightPhotographer);
         mediaModel.createMediaCard()
     })
+    createEncart(rightPhotographer);
+
 }
 
 

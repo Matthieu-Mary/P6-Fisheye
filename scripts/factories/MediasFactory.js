@@ -1,7 +1,7 @@
 const MediaFactory = (data, photographer) => {
-    const { id, title, image, video, likes } = data;
+    const { title, image, video, likes } = data;
     
-    const { name, price } = photographer //!!!!!!!!!Photographer est appelé autant de fois qu'il y a de médias ... bug a résoudre!!!!!!!!!!!!!
+    const { name } = photographer //!!!!!!!!!Photographer est appelé autant de fois qu'il y a de médias ... bug a résoudre!!!!!!!!!!!!!
 
     // Get only photographers first name to get the right media images
     const photographerName = name;
@@ -10,7 +10,7 @@ const MediaFactory = (data, photographer) => {
 
     const picture = `../assets/SamplePhotos/${firstName}/${image}`
     const mediasSection = document.querySelector(".medias");
-    const heart = "../assets/icons/Vector.svg"
+    const heart = "../assets/icons/Vector.svg"; // A revoir
     
     function createMediaCard() {
         const card = document.createElement("div");
@@ -22,7 +22,7 @@ const MediaFactory = (data, photographer) => {
         const h3 = document.createElement("h3");
         h3.textContent = title;
         const cardLikes = document.createElement("span");
-        cardLikes.textContent = `${likes} coeurs`;
+        cardLikes.textContent = `${likes}`;
         
         mediaInfos.appendChild(h3)
         mediaInfos.appendChild(cardLikes)
@@ -35,22 +35,26 @@ const MediaFactory = (data, photographer) => {
         return { mediasSection }
     }
 
-    function createEncart() {
-
-        const encart = document.querySelector(".likes-and-price");
-        let totalLikes = 23999;
-
-        const p = document.querySelector("p");
-        p.textContent = totalLikes;
-        const span = document.createElement("span");
-        span.textContent = `${price}€ / jour`;
-        encart.appendChild(p);
-        encart.appendChild(span);
-
-        return { encart }
-
-    }
-    createEncart()
-    return { createMediaCard, createEncart }
+    return { createMediaCard }
     
 }   
+
+// CREATE ENCART
+const createEncart = (rightPhotographer) => {
+
+    const { price } = rightPhotographer;
+
+    const encart = document.querySelector(".likes-and-price");
+    let totalLikes = 23999;
+    
+    const p = document.createElement("p");
+    p.textContent = `${totalLikes} likes`;
+    const span = document.createElement("span");
+    span.textContent = ` ${price} € / jour`;
+    encart.appendChild(p);
+    encart.appendChild(span);
+ 
+
+    return { encart }
+
+}

@@ -67,7 +67,7 @@ function photographerPage(data) {
 
         const contactBtn = document.createElement("button");
         contactBtn.classList.add("contact_button");
-        contactBtn.onClick = displayModal; //A revoir
+        contactBtn.onClick = displayModal(); //A revoir
         contactBtn.textContent = "Contactez-moi";
 
         const img = document.createElement("img");
