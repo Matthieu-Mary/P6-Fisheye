@@ -46,13 +46,13 @@
 			"portrait": "RhodeDubois.jpg"
 		},
 		{
-			"name": "Marcel Nikolic",
-			"id": 195,
-			"city": "Berlin",
-			"country": "Germany",
-			"tagline": "Toujours à la recherche de LA photo",
-			"price": 300,
-			"portrait": "MarcelNikolic.jpg"
+			"name": "Marcel Nikolic", 
+			"id": 195, 
+			"city": "Berlin", 
+			"country": "Germany", 
+			"tagline": "Toujours à la recherche de LA photo", 
+			"price": 300, 
+			"portrait": "MarcelNikolic.jpg" 
 		}
 	],
 	"media": [
