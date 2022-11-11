@@ -9,7 +9,6 @@ async function getPhotographers() {
     return { photographers:[...response] };
 }  
 
-
 async function getMedias() {
     const response = await fetch("../data/photographers.json")
     .then(res => res.json())

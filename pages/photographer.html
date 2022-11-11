@@ -27,15 +27,24 @@
     <div id="contact_modal">
 			<div class="modal">
 				<header>
-          <h2>Contactez-moi</h2>
+          <div class="header-content">
+            <h2>Contactez-moi</h2>
+            <h3>Mimi Keel</h3>
+          </div>
           <img src="../assets/icons/close.svg" onclick="closeModal()" />
         </header>
-				<form>
+				<form onsubmit="getModalInputValues()">
 					<div>
-						<label>Prénom</label>
-						<input />
+						<label for="form-firstname">Prénom</label>
+						<input id="form-firstname" type="text"/>
+						<label for="form-name">Nom</label>
+						<input id="form-name" type="text"/>
+						<label for="form-email">Email</label>
+						<input id="form-email" type="email"/>
+						<label for="form-message">Votre message</label>
+						<textarea name="message" id="form-message" type="text" ></textarea>
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <button class="contact-button">Envoyer</button>
 				</form>
 			</div>
 		</div>
@@ -48,6 +57,7 @@
 
     <!-- MEDIAS FACTORY -->
     <script src="../scripts/factories/MediasFactory.js"></script>
+    
     <!-- PAGE -->
     <script src="/scripts/pages/Photographer.js"></script>
 
