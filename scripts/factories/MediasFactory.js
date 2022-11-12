@@ -1,5 +1,8 @@
-const MediaFactory = (data, photographer) => {
-    const { title, image, video, likes } = data;
+const MediaFactory = (medias, photographer) => {
+    const {id, title, image, video, likes } = medias;
+
+    // store likes variable in let in order to increment it 
+    let likedMedia = likes;
 
     const { name } = photographer //!!!!!!!!!Photographer est appelé autant de fois qu'il y a de médias ... bug a résoudre!!!!!!!!!!!!!
 
@@ -11,23 +14,22 @@ const MediaFactory = (data, photographer) => {
     const picture = `../assets/SamplePhotos/${firstName}/${image}`
     const videoSrc = `../assets/SamplePhotos/${firstName}/${video}`
     const mediasSection = document.querySelector(".medias");
-    const heart = "../assets/icons/Vector.svg"; // A revoir
     
     function createMediaCard() {
         const card = document.createElement("div");
-        card.classList.add('media-card');
-        
+        card.classList.add('media-card');      
         
         const mediaInfos = document.createElement("div");
         mediaInfos.classList.add("media-infos");
         const h3 = document.createElement("h3");
         h3.textContent = title;
         const cardLikes = document.createElement("span");
-        cardLikes.textContent = `${likes}`;
+        cardLikes.innerHTML = `${likedMedia} <i class="fa-sharp fa-solid fa-heart"></i>`;
+        cardLikes.addEventListener("click", () => increaseLikes(id, likedMedia))
         
         mediaInfos.appendChild(h3)
         mediaInfos.appendChild(cardLikes)   
-        
+
         const img = document.createElement("img");
         if (image) {
             img.setAttribute("src", picture);
@@ -40,14 +42,19 @@ const MediaFactory = (data, photographer) => {
         }
            
         card.appendChild(mediaInfos)
-
         mediasSection.appendChild(card)
 
         return { mediasSection }
     }
 
-    return { createMediaCard }
+    function increaseLikes(id, likedMedia) {
+        if (id === id) {
+            const increasedLikes = likedMedia + 1;
+            console.log(increasedLikes)
+        } 
+    }
     
+    return { createMediaCard }   
 }   
 
 // CREATE ENCART
@@ -59,7 +66,7 @@ const createEncart = (rightPhotographer) => {
     let totalLikes = 24682;
     
     const p = document.createElement("p");
-    p.textContent = `${totalLikes} likes`;
+    p.innerHTML = `${totalLikes} <i class="fa-sharp fa-solid fa-heart"></i>`;
     const span = document.createElement("span");
     span.textContent = ` ${price} € / jour`;
     encart.appendChild(p);

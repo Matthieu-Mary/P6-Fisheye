@@ -9,6 +9,7 @@
     height: 300px;
     margin: 0 100px;
     display: flex;
+    order: 1;
     align-items: center;
     flex-direction: row;
     justify-content: space-around;
@@ -39,6 +40,7 @@
 }
 
 .contact_button {
+    order: 2;
     font-size: 20px;
     font-weight: bold;
     color: white;
@@ -52,6 +54,7 @@
 }
 
 .photographer-header img {
+    order: 3;
     width: 200px;
     height: 200px;
     border-radius: 50%;
@@ -96,6 +99,12 @@
             }
             span {
                 font-weight: bold;
+                font-size: 24px;
+                line-height: 32px;
+                i {
+                    font-size: 1.25rem;
+                    cursor: pointer;
+                }
             }
         }
     }

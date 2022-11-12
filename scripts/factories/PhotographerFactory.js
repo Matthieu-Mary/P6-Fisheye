@@ -64,17 +64,10 @@ function photographerPage(data) {
         photographerInfos.appendChild(h1);
         photographerInfos.appendChild(h6);
         photographerInfos.appendChild(p);   
-
-        const contactBtn = document.createElement("button");
-        contactBtn.classList.add("contact_button");
-        contactBtn.addEventListener("click", () => displayModal());
-        contactBtn.textContent = "Contactez-moi";
-
         const img = document.createElement("img");
         img.setAttribute("src", picture);
 
         photographerHeader.appendChild(photographerInfos);
-        photographerHeader.appendChild(contactBtn);
         photographerHeader.appendChild(img);
         
         return { photographerHeader }

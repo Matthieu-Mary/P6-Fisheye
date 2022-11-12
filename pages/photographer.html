@@ -6,6 +6,7 @@
     <link rel="icon" type="image/png" href="../assets/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/cd16bfafc5.js" crossorigin="anonymous"></script>
     <title>Fisheye - photographe </title>
   </head>
 
@@ -17,7 +18,9 @@
     </header>
 
     <main id="main">
-      <div class="photographer-header"></div>
+      <div class="photographer-header">
+        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+      </div>
 
       <section class="medias"></section>
 
@@ -33,7 +36,7 @@
           </div>
           <img src="../assets/icons/close.svg" onclick="closeModal()" />
         </header>
-				<form onsubmit="getModalInputValues()">
+				<form class="contact-form">
 					<div>
 						<label for="form-firstname">Prénom</label>
 						<input id="form-firstname" type="text"/>
@@ -44,7 +47,7 @@
 						<label for="form-message">Votre message</label>
 						<textarea name="message" id="form-message" type="text" ></textarea>
 					</div>
-          <button class="contact-button">Envoyer</button>
+          <button>Envoyer</button>
 				</form>
 			</div>
 		</div>
