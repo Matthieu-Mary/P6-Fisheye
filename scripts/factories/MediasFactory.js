@@ -1,9 +1,6 @@
 const MediaFactory = (medias, photographer) => {
     const {id, title, image, video, likes } = medias;
 
-    // store likes variable in let in order to increment it 
-    let likedMedia = likes;
-
     const { name } = photographer //!!!!!!!!!Photographer est appelé autant de fois qu'il y a de médias ... bug a résoudre!!!!!!!!!!!!!
 
     // Get only photographers first name to get the right media images
@@ -24,12 +21,21 @@ const MediaFactory = (medias, photographer) => {
         const h3 = document.createElement("h3");
         h3.textContent = title;
         const cardLikes = document.createElement("span");
-        cardLikes.innerHTML = `${likedMedia} <i class="fa-sharp fa-solid fa-heart"></i>`;
-        cardLikes.addEventListener("click", () => increaseLikes(id, likedMedia))
+
+        
+        cardLikes.innerHTML = `${likes} <i class="fa-sharp fa-solid fa-heart"></i>`;
+        cardLikes.addEventListener("click", () => increaseLikes(id))
+        
+        function increaseLikes(id) {
+            if (id === id) {
+                const newLikesNumber = likes + 1;
+                cardLikes.innerHTML = `${newLikesNumber} <i class="fa-sharp fa-solid fa-heart"></i>`
+            } 
+        }
         
         mediaInfos.appendChild(h3)
         mediaInfos.appendChild(cardLikes)   
-
+        
         const img = document.createElement("img");
         if (image) {
             img.setAttribute("src", picture);
@@ -47,21 +53,15 @@ const MediaFactory = (medias, photographer) => {
         return { mediasSection }
     }
 
-    function increaseLikes(id, likedMedia) {
-        if (id === id) {
-            const increasedLikes = likedMedia + 1;
-            console.log(increasedLikes)
-        } 
-    }
     
     return { createMediaCard }   
 }   
 
 // CREATE ENCART
 const createEncart = (rightPhotographer) => {
-
+    
     const { price } = rightPhotographer;
-
+    
     const encart = document.querySelector(".likes-and-price");
     let totalLikes = 24682;
     
