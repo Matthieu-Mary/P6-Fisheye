@@ -53,17 +53,21 @@ const MediaFactory = (medias, photographer) => {
         return { mediasSection }
     }
 
-    
     return { createMediaCard }   
 }   
 
 // CREATE ENCART
-const createEncart = (rightPhotographer) => {
+const createEncart = (rightPhotographer, rightMedias) => {
     
     const { price } = rightPhotographer;
-    
+
+    //Add total likes to encart
+    let likesArray = [];
+    rightMedias.forEach(media => likesArray.push(media.likes))
+    console.log(likesArray);
+    const totalLikes = likesArray.reduce((prev, curr) => prev + curr, 0);
+
     const encart = document.querySelector(".likes-and-price");
-    let totalLikes = 24682;
     
     const p = document.createElement("p");
     p.innerHTML = `${totalLikes} <i class="fa-sharp fa-solid fa-heart"></i>`;
@@ -75,3 +79,4 @@ const createEncart = (rightPhotographer) => {
     return { encart }
 
 }
+ 

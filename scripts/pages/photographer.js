@@ -36,7 +36,7 @@ async function displayMedias(medias, photographers) {
         const mediaModel = MediaFactory(media, rightPhotographer);
         mediaModel.createMediaCard()
     })
-    createEncart(rightPhotographer);
+    createEncart(rightPhotographer, rightMedias);
 
 }
 
