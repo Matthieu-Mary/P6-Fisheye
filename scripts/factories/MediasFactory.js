@@ -65,7 +65,7 @@ const createEncart = (rightPhotographer, rightMedias) => {
     let likesArray = [];
     rightMedias.forEach(media => likesArray.push(media.likes))
     console.log(likesArray);
-    const totalLikes = likesArray.reduce((prev, curr) => prev + curr, 0);
+    let totalLikes = likesArray.reduce((prev, curr) => prev + curr, 0);
 
     const encart = document.querySelector(".likes-and-price");
     
