@@ -95,6 +95,7 @@
     .photographer-header {
         height: auto;
         margin: 0;
+        padding: 1.5rem;
         flex-direction: column;
         text-align: center;
         .photographer-infos {
@@ -202,4 +203,14 @@
     align-items: center;
     font-size: 24px;
     font-weight: bold;
+}
+
+@media screen and (max-width: 767px) {
+    .likes-and-price {
+        right: 50%;
+        transform: translateX(50%);
+        height: 50px;
+        width: 300px;
+        font-size: 20px;
+    }
 }

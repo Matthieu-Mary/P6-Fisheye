@@ -29,7 +29,8 @@ const MediaFactory = (medias, photographer) => {
         function increaseLikes(id) {
             if (id === id) {
                 const newLikesNumber = likes + 1;
-                cardLikes.innerHTML = `${newLikesNumber} <i class="fa-sharp fa-solid fa-heart"></i>`
+                cardLikes.innerHTML = `${newLikesNumber} <i class="fa-sharp fa-solid fa-heart"></i>`;
+                return true
             } 
         }
         
@@ -57,15 +58,10 @@ const MediaFactory = (medias, photographer) => {
 }   
 
 // CREATE ENCART
-const createEncart = (rightPhotographer, rightMedias) => {
+const createEncart = (rightPhotographer, totalLikes) => {
     
     const { price } = rightPhotographer;
-
-    //Add total likes to encart
-    let likesArray = [];
-    rightMedias.forEach(media => likesArray.push(media.likes))
-    console.log(likesArray);
-    let totalLikes = likesArray.reduce((prev, curr) => prev + curr, 0);
+    console.log(totalLikes)
 
     const encart = document.querySelector(".likes-and-price");
     
@@ -75,8 +71,7 @@ const createEncart = (rightPhotographer, rightMedias) => {
     span.textContent = ` ${price} € / jour`;
     encart.appendChild(p);
     encart.appendChild(span);
- 
+    
     return { encart }
-
+    
 }
- 
