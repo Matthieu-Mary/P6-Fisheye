@@ -111,6 +111,67 @@
   object-fit: cover;
 }
 
+@media screen and (max-width: 1200px) {
+  .photographer-header .photographer-infos h1 {
+    font-size: 2.5rem;
+  }
+  .photographer-header .photographer-infos h6 {
+    font-size: 18px;
+  }
+  .photographer-header .photographer-infos p {
+    font-size: 14px;
+  }
+  .contact_button {
+    font-size: 18px;
+    padding: 10px;
+    width: 150px;
+    height: 60px;
+  }
+  .photographer-header img {
+    width: 150px;
+    height: 150px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .photographer-header {
+    margin: 0 20px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .photographer-header {
+    height: auto;
+    margin: 0;
+    flex-direction: column;
+    text-align: center;
+  }
+  .photographer-header .photographer-infos {
+    margin-bottom: 1rem;
+  }
+  .photographer-header .photographer-infos h1 {
+    font-size: 2em;
+    font-weight: 400;
+    line-height: 50px;
+  }
+  .photographer-header .photographer-infos p {
+    font-weight: 400;
+    line-height: 23px;
+    color: var(--grey-1);
+    padding: 0;
+  }
+  .contact_button {
+    order: 3;
+    font-size: 14px;
+    padding: 8px;
+    width: 140px;
+    height: 50px;
+  }
+  .photographer-header img {
+    order: 2;
+    width: 125px;
+    height: 125px;
+    margin-bottom: 1rem;
+  }
+}
 .medias {
   width: 90%;
   margin: 100px auto 100px;
@@ -146,18 +207,28 @@
 }
 .medias .media-card .media-infos h3 {
   font-weight: 400;
-  font-size: 24px;
+  font-size: 20px;
 }
 .medias .media-card .media-infos span {
   font-weight: bold;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 32px;
 }
 .medias .media-card .media-infos span i {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   cursor: pointer;
 }
 
+@media screen and (max-width: 1200px) {
+  .medias {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 767px) {
+  .medias {
+    grid-template-columns: 1fr;
+  }
+}
 .likes-and-price {
   background-color: #DB8876;
   color: black;
