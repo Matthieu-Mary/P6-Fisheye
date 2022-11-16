@@ -28,19 +28,17 @@ async function getRightMedias(medias) {
 }
 
 async function displayMedias(medias, photographers) {
-  // Add photographer because photographer name is needed to display the rights images
+  // Add photographer because photographer name is needed to display the rights images.
   const rightPhotographer = await getRightPhotographer(photographers);
   const rightMedias = await getRightMedias(medias);
   rightMedias.forEach((media) => {
     const mediaModel = MediaFactory(media, rightPhotographer);
     mediaModel.createMediaCard();
   });
-
   // Add total likes to encart
   let likesArray = [];
   rightMedias.forEach((media) => likesArray.push(media.likes));
   let totalLikes = likesArray.reduce((prev, curr) => prev + curr, 0);
-
   createEncart(rightPhotographer, totalLikes);
 }
 
