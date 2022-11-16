@@ -409,4 +409,45 @@ form button {
   cursor: pointer;
 }
 
+.container-lightbox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+}
+.container-lightbox .lightbox-content {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+}
+.container-lightbox .lightbox-content i {
+  font-size: 3.5rem;
+  color: var(--primary-2);
+  margin: 0 auto;
+  cursor: pointer;
+}
+.container-lightbox .lightbox-content .lightbox-img {
+  width: 80%;
+  height: 95%;
+}
+.container-lightbox .lightbox-content .lightbox-close {
+  position: absolute;
+  top: 2%;
+  right: 5%;
+  color: var(--primary-2);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=style.css.map */
