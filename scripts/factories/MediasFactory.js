@@ -1,3 +1,4 @@
+let newLikesNumber;
 const MediaFactory = (medias, photographer) => {
   const { id, title, image, video, likes } = medias;
 
@@ -23,13 +24,20 @@ const MediaFactory = (medias, photographer) => {
     const cardLikes = document.createElement("span");
 
     cardLikes.innerHTML = `${likes} <i class="fa-sharp fa-solid fa-heart"></i>`;
-    cardLikes.addEventListener("click", () => increaseLikes(id));
+    cardLikes.addEventListener("click", () => toggleLikes(id));
 
-    function increaseLikes(id) {
-      if (id === id) {
+    // Toggle +1 or -1 when clik on heart
+    let isLiked = false;
+    function toggleLikes(id) {
+      isLiked != isLiked;
+      if (id === id && isLiked === false) {
         const newLikesNumber = likes + 1;
         cardLikes.innerHTML = `${newLikesNumber} <i class="fa-sharp fa-solid fa-heart"></i>`;
-        return true;
+        isLiked = true;
+      } else if (id === id && isLiked === true) {
+        const newLikesNumber = likes;
+        cardLikes.innerHTML = `${newLikesNumber} <i class="fa-sharp fa-solid fa-heart"></i>`;
+        isLiked = false;
       }
     }
 
@@ -58,11 +66,10 @@ const MediaFactory = (medias, photographer) => {
 
 // CREATE ENCART
 const createEncart = (rightPhotographer, totalLikes) => {
+
   const { price } = rightPhotographer;
-  console.log(totalLikes);
 
   const encart = document.querySelector(".likes-and-price");
-
   const p = document.createElement("p");
   p.innerHTML = `${totalLikes} <i class="fa-sharp fa-solid fa-heart"></i>`;
   const span = document.createElement("span");
