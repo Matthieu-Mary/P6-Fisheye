@@ -1,4 +1,5 @@
-const MediaFactory = (media, photographer) => {
+const MediaFactory = (media, photographer, rightMedias) => {
+
   const { id, title, image, video, likes } = media;
 
   const { name } = photographer;
@@ -23,10 +24,11 @@ const MediaFactory = (media, photographer) => {
     cardLikes.innerHTML = `${likes} <i class="fa-sharp fa-solid fa-heart"></i>`;
     // Call likesManager function
     cardLikes.addEventListener("click", () => likesManager(media, cardLikes, photographer));
+    
     mediaInfos.appendChild(h3);
     mediaInfos.appendChild(cardLikes);
     const img = document.createElement("img");
-    img.addEventListener("click", () => displayLightBox(img, mediasSection))
+    img.addEventListener("click", () => displayLightBox(media, rightMedias))
     if (image) {
       img.setAttribute("src", picture);
       card.appendChild(img);

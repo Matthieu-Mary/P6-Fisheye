@@ -32,7 +32,7 @@ async function displayMedias(medias, photographers) {
   const rightPhotographer = await getRightPhotographer(photographers);
   const rightMedias = await getRightMedias(medias);
   rightMedias.forEach((media) => {
-    const mediaModel = MediaFactory(media, rightPhotographer);
+    const mediaModel = MediaFactory(media, rightPhotographer, rightMedias);
     mediaModel.createMediaCard();
   });
   // Add total likes to encart

@@ -191,6 +191,7 @@
   width: 100%;
   min-height: 90%;
   object-fit: cover;
+  cursor: pointer;
 }
 .medias .media-card video {
   width: 100%;
