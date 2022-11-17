@@ -28,7 +28,7 @@ const MediaFactory = (media, photographer, rightMedias) => {
     mediaInfos.appendChild(h3);
     mediaInfos.appendChild(cardLikes);
     const img = document.createElement("img");
-    img.addEventListener("click", () => displayLightBox(media, rightMedias))
+    img.addEventListener("click", () => displayLightBox(img, vid, media, rightMedias));
     if (image) {
       img.setAttribute("src", picture);
       card.appendChild(img);

@@ -1,9 +1,6 @@
-
-
-
-
 let isLiked = false;
 let newLikesNumber;
+
 function likesManager(media, cardLikes, photographer) {
 
     const { id, likes } = media;

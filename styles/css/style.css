@@ -197,6 +197,7 @@
   width: 100%;
   min-height: 90%;
   object-fit: cover;
+  cursor: pointer;
 }
 .medias .media-card .media-infos {
   width: 100%;
@@ -425,29 +426,32 @@ form button {
   align-items: center;
 }
 .container-lightbox .lightbox-content {
+  margin: 0;
   display: flex;
   position: relative;
   justify-content: center;
   align-items: center;
-  width: 80%;
-  height: 100%;
+  width: 70%;
+  height: 98%;
+  background-color: white;
+  border-radius: 5px;
 }
-.container-lightbox .lightbox-content i {
+.container-lightbox .lightbox-content .chevron-left, .container-lightbox .lightbox-content .chevron-right {
   font-size: 3.5rem;
   color: var(--primary-2);
   margin: 0 auto;
   cursor: pointer;
 }
-.container-lightbox .lightbox-content .lightbox-img {
-  width: 80%;
-  height: 95%;
+.container-lightbox .lightbox-content .lightbox-img, .container-lightbox .lightbox-content .lightbox-video {
+  width: 88%;
+  height: 100%;
 }
 .container-lightbox .lightbox-content .lightbox-close {
   position: absolute;
-  top: 2%;
-  right: 5%;
+  top: 1.5%;
+  right: 2%;
   color: var(--primary-2);
-  font-size: 2rem;
+  font-size: 2.5rem;
   cursor: pointer;
 }
 
