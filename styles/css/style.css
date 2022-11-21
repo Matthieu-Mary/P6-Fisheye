@@ -212,13 +212,17 @@
   font-weight: 400;
   font-size: 20px;
 }
-.medias .media-card .media-infos span {
-  font-weight: bold;
+.medias .media-card .media-infos .card-likes {
   font-size: 20px;
-  line-height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.medias .media-card .media-infos span i {
-  font-size: 1.2rem;
+.medias .media-card .media-infos .card-likes p {
+  margin-right: 5px;
+  font-weight: bold;
+}
+.medias .media-card .media-infos .card-likes i {
   cursor: pointer;
 }
 

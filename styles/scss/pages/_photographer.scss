@@ -166,12 +166,16 @@
                 font-weight: 400;
                 font-size: 20px;
             }
-            span {
-                font-weight: bold;
+            .card-likes {
                 font-size: 20px;
-                line-height: 32px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .likes-number {
+                    margin-right: 5px;
+                    font-weight: bold;
+                }
                 i {
-                    font-size: 1.2rem;
                     cursor: pointer;
                 }
             }

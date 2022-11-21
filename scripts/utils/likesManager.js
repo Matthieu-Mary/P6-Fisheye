@@ -1,42 +1,29 @@
-let isLiked = false;
-let newLikesNumber;
+function increaseLikesCard(e) {
+  let sum = 0;
+  const allTexts = document.querySelectorAll(".card-likes p");
+  const totalLikes = allTexts.forEach(
+    (likes) => (sum += Number(likes.textContent))
+  );
+  const currentTarget = e.currentTarget;
 
-function likesManager(media, cardLikes, photographer) {
+  if (!currentTarget.hasAttribute("liked")) {
+    currentTarget.setAttribute("liked", "");
+    const newLikesNumber = currentTarget.querySelector(".likes-number");
+    newLikesNumber.textContent = Number(currentTarget.textContent) +1;
+  }
 
-    const { id, likes } = media;
-
-    isLiked != isLiked;
-    if (id === id && isLiked === false) {
-      newLikesNumber = likes + 1;
-      cardLikes.innerHTML = `${newLikesNumber} <i class="fa-sharp fa-solid fa-heart"></i>`;
-      isLiked = true;
-    } else if (id === id && isLiked === true) {
-      newLikesNumber = likes;
-      cardLikes.innerHTML = `${newLikesNumber} <i class="fa-sharp fa-solid fa-heart"></i>`;
-      isLiked = false;
-    }
-
-    createEncart(photographer, likes)
-
+  
 }
 
-
-
-
 // CREATE ENCART
-const createEncart = (rightPhotographer, totalLikes) => {
+// const createEncart = (rightPhotographer, totalLikes) => {
 
-  const { price } = rightPhotographer;
+//   const { price } = rightPhotographer;
+//   const encart = document.querySelector(".likes-and-price");
 
-  const encart = document.querySelector(".likes-and-price");
-  const p = document.createElement("p");
-  p.innerHTML = `${totalLikes} <i class="fa-sharp fa-solid fa-heart"></i>`;
-  const span = document.createElement("span");
-  span.textContent = ` ${price} € / jour`;
-  encart.appendChild(p);
-  encart.appendChild(span);
+//   p.innerHTML = `${totalLikes} <i class="fa-sharp fa-solid fa-heart"></i>`;
+//   const span = document.createElement("span");
+//   span.textContent = ` ${price} € / jour`;
 
-  return { encart };
-};
-
-
+//   return { encart };
+// };
