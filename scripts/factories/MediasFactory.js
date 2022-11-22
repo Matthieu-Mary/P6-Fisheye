@@ -29,7 +29,7 @@ const MediaFactory = (media, rightPhotographer, rightMedias) => {
     cardLikes.addEventListener("click", (e) => increaseLikesCard(e, rightPhotographer));
 
     const likesNumber = document.createElement("p");
-    likesNumber.classList.add("likes-number")
+    likesNumber.classList.add("likes-number");
     likesNumber.textContent = likes;
 
     const heart = document.createElement("i");
@@ -40,19 +40,31 @@ const MediaFactory = (media, rightPhotographer, rightMedias) => {
     mediaInfos.appendChild(h3);
     mediaInfos.appendChild(cardLikes);
 
+    const vid = document.createElement("video");
     const img = document.createElement("img");
-    img.addEventListener("click", () => displayLightBox(img, vid, media, rightMedias));
+    img.addEventListener("click", (e) => toggleLightBox(e, h3));
+
     if (image) {
+      getMediaImage()
+    }
+    if (video) {
+      getMediaVideo()
+    }
+
+    function getMediaImage() {
       img.setAttribute("src", picture);
       card.appendChild(img);
     }
-    const vid = document.createElement("video");
-    if (video) {
+
+    function getMediaVideo() {
       vid.setAttribute("src", videoSrc);
+      vid.setAttribute("controls", true)
       card.appendChild(vid);
     }
+
     card.appendChild(mediaInfos);
     mediasSection.appendChild(card);
+
     return { mediasSection };
   }
 

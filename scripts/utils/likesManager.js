@@ -1,5 +1,5 @@
 function increaseLikesCard(e, rightPhotographer) { 
-  const currentTarget = e.currentTarget;
+  const { currentTarget } = e;
   if (!currentTarget.hasAttribute("liked")) {
     currentTarget.setAttribute("liked", "");
     const currentHeart = currentTarget.querySelector("i");
@@ -15,7 +15,6 @@ function increaseLikesCard(e, rightPhotographer) {
     newLikesNumber.textContent = Number(currentTarget.textContent) -1;
     increaseTotalLikes(rightPhotographer);
   }
-  console.log(currentTarget.getAttribute("liked"))
 }
 
 
