@@ -144,19 +144,19 @@
         height: 300px;
         img {
             width: 100%;
-            min-height: 90%;
+            min-height: 88%;
             object-fit: cover;
             cursor: pointer;
         }
         video {
             width: 100%;
-            min-height: 90%;
+            min-height: 88%;
             object-fit: cover;
             cursor: pointer;
         }
         .media-infos {
             width: 100%;
-            height: auto;
+            height: 12%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -177,6 +177,13 @@
                 }
                 i {
                     cursor: pointer;
+                    &.active {
+                        font-size: 25px;
+                        opacity: 1;
+                    }
+                    &.unactive {
+                        font-size: 20px;
+                    }
                 }
             }
         }
@@ -195,7 +202,7 @@
 }
 
 // ENCART
-.likes-and-price {
+.encart {
     background-color: #DB8876;
     color: black;
     border-radius: 5px 5px 0 0;
@@ -209,10 +216,18 @@
     align-items: center;
     font-size: 24px;
     font-weight: bold;
+    .total-likes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p {
+            margin-right: 5px;
+        }
+    }
 }
 
 @media screen and (max-width: 767px) {
-    .likes-and-price {
+    .encart {
         right: 50%;
         transform: translateX(50%);
         height: 50px;

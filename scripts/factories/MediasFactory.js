@@ -1,8 +1,8 @@
-const MediaFactory = (media, photographer, rightMedias) => {
+const MediaFactory = (media, rightPhotographer, rightMedias) => {
 
   const { id, title, image, video, likes } = media;
 
-  const { name } = photographer;
+  const { name } = rightPhotographer;
 
   // Get only photographers first name to get the right media images
   const photographerName = name;
@@ -26,7 +26,7 @@ const MediaFactory = (media, photographer, rightMedias) => {
 
     const cardLikes = document.createElement("div");
     cardLikes.classList.add('card-likes');
-    cardLikes.addEventListener("click", (e) => increaseLikesCard(e));
+    cardLikes.addEventListener("click", (e) => increaseLikesCard(e, rightPhotographer));
 
     const likesNumber = document.createElement("p");
     likesNumber.classList.add("likes-number")
@@ -56,7 +56,19 @@ const MediaFactory = (media, photographer, rightMedias) => {
     return { mediasSection };
   }
 
+  
   return { createMediaCard };
 };
 
+
+// ENCART
+function createEncart(rightPhotographer, totalLikes) {
+
+  const { price } = rightPhotographer;
+
+  const totalLikesP = document.querySelector(".total-likes p");
+  totalLikesP.textContent = totalLikes;
+  const photographerPrice = document.querySelector(".encart .price");
+  photographerPrice.textContent = `${price}€ / jour`;
+}
 
