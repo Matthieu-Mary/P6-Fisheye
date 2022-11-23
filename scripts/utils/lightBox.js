@@ -1,78 +1,68 @@
 const lightbox = document.querySelector(".lightbox");
 let lightBoxActive = false;
 
-function lightBox(e, rightMedias) {
+function getAllMedias() {
+  const allMediasNodes = document.querySelectorAll(".media-card");
+  return Array.prototype.slice.call(allMediasNodes);
+}
 
+function lightBox(e) {
   // current card
   const { currentTarget } = e;
-  const mediaTitle = currentTarget.parentNode.querySelector("h3").textContent;
-  
-  // get all medias 
-  const mediasArray = [];
-  function getAllMedias(rightMedias) {
-    rightMedias.forEach((media) => {
-      mediasArray.push(media);
-    })
-  }
-  getAllMedias(rightMedias);
-  console.log(mediasArray)
+  const currentMedia = currentTarget.parentNode;
+  const allMedias = getAllMedias();
+  const indexMedia = allMedias.indexOf(currentMedia);
 
-// current media informations (by title comparison)
-  let currentTitle;
-  let currentImage;
-  let currentVideo;
-  let currentIndex;
-  mediasArray.forEach((media, index) => {
-    if (media.title == mediaTitle) {
-      currentTitle = media.title;
-      currentImage = media.image;
-      currentVideo = media.video;
-      currentIndex = index;
-    } 
-  });
-  console.log(currentTitle, currentImage, currentVideo, currentIndex)
+  lightbox.dataset.key = indexMedia;
 
-  // set actual key egual to card index
-  lightbox.dataset.key = currentIndex;
-  console.log(currentIndex)
-  
-  lightBoxActive = !lightBoxActive;
+  lightbox.classList.toggle("active");
 
-  createLightBox(currentTarget,cardTitle);
+  createLightBox()
 
+  lightBoxActive = true;
 }
 
 function createLightBox() {
   // GLOBAL
-  lightbox.classList.toggle("active");
+  const allMedias = getAllMedias();
+  const currentKey = lightbox.dataset.key;
+  const currentImage = allMedias[currentKey].querySelector("img").cloneNode(true);
+  console.log(currentImage)
+  // const currentVideo = allMedias[currentKey].querySelector("video");
+  // console.log(currentVideo)
+  const currentTitle = allMedias[currentKey].querySelector("h3").textContent;
+  console.log(currentTitle)
+
   const content = document.createElement("div");
   content.classList.add("lightbox-content");
 
   // IMAGES
   const imageLightBox = document.createElement("img");
   imageLightBox.classList.add("lightbox-img");
-  if (imageLightBox) {
-    imageLightBox.setAttribute("src", currentTarget.src);
-  }
+  imageLightBox.setAttribute("src", currentImage.src);
+
 
   // VIDEO
-  const videoLightBox = document.createElement("video");
-  videoLightBox.classList.add("lightbox-video");
-  if (videoLightBox) {
-    videoLightBox.setAttribute("src", currentTarget.src);
-  }
+  // const videoLightBox = document.createElement("video");
+  // videoLightBox.classList.add("lightbox-video");
+  // videoLightBox.setAttribute("src", currentVideo);
+  
 
   // LEFT CHEVRON
   const chevronLeft = document.createElement("i");
   chevronLeft.classList.add("chevron-left");
   chevronLeft.innerHTML = `<i class="fa-sharp fa-solid fa-chevron-left"></i>`;
-  chevronLeft.addEventListener("click", () => previousImage());
+  chevronLeft.addEventListener("click", () =>
+    previousImage()
+  );
 
   // RIGH CHEVRON
   const chevronRight = document.createElement("i");
   chevronRight.classList.add("chevron-right");
   chevronRight.innerHTML = `<i class="fa-sharp fa-solid fa-chevron-right"></i>`;
-  chevronRight.addEventListener("click", () => nextImage());
+  chevronRight.addEventListener("click", () =>
+    nextImage()
+  );
 
   // CLOSE BUTTON
   const closeBtn = document.createElement("i");
@@ -80,19 +70,18 @@ function createLightBox() {
   closeBtn.classList.add("lightbox-close");
   closeBtn.addEventListener("click", () => closeLightBox());
 
-//   TITLE
-const title = document.createElement("h3");
-title.textContent = cardTitle;
+  //   TITLE
+  const title = document.createElement("h3");
+  title.textContent = currentTitle;
 
   content.appendChild(chevronLeft);
   content.appendChild(imageLightBox);
   content.appendChild(chevronRight);
   content.appendChild(closeBtn);
   lightbox.appendChild(content);
-  lightbox.appendChild(title)
+  lightbox.appendChild(title);
 
-  return { lightBox }
-
+  return { lightBox };
 }
 
 function closeLightBox() {
@@ -101,9 +90,18 @@ function closeLightBox() {
 }
 
 function previousImage() {
-  console.log("image précédente");
+  let currentKey = Number(lightbox.dataset.key);
+  if(currentKey > 0) {
+    const newCurrentKey = currentKey - 1;
+    lightbox.dataset.key = newCurrentKey;
+    createLightBox()
+  }
 }
 
 function nextImage() {
-  console.log("image suivante");
+  let currentKey = Number(lightbox.dataset.key);
+  const newCurrentKey = currentKey + 1;
+  lightbox.dataset.key = newCurrentKey;
+  createLightBox()
+  
 }
