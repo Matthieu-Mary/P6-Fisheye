@@ -1,20 +1,50 @@
-const photographerPageDOM = document.querySelector("body");
-const container = document.createElement("div");
+const lightbox = document.querySelector(".lightbox");
 let lightBoxActive = false;
 
-function toggleLightBox(e, h3) {
+function lightBox(e, rightMedias) {
+
+  // current card
   const { currentTarget } = e;
-  const cardTitle = h3.textContent;
-  lightBoxActive = true;
-  console.log(cardTitle);
+  const mediaTitle = currentTarget.parentNode.querySelector("h3").textContent;
+  
+  // get all medias 
+  const mediasArray = [];
+  function getAllMedias(rightMedias) {
+    rightMedias.forEach((media) => {
+      mediasArray.push(media);
+    })
+  }
+  getAllMedias(rightMedias);
+  console.log(mediasArray)
+
+// current media informations (by title comparison)
+  let currentTitle;
+  let currentImage;
+  let currentVideo;
+  let currentIndex;
+  mediasArray.forEach((media, index) => {
+    if (media.title == mediaTitle) {
+      currentTitle = media.title;
+      currentImage = media.image;
+      currentVideo = media.video;
+      currentIndex = index;
+    } 
+  });
+  console.log(currentTitle, currentImage, currentVideo, currentIndex)
+
+  // set actual key egual to card index
+  lightbox.dataset.key = currentIndex;
+  console.log(currentIndex)
+  
+  lightBoxActive = !lightBoxActive;
 
   createLightBox(currentTarget,cardTitle);
+
 }
 
-function createLightBox(currentTarget, cardTitle) {
+function createLightBox() {
   // GLOBAL
-  container.style.display = "flex";
-  container.classList.add("container-lightbox");
+  lightbox.classList.toggle("active");
   const content = document.createElement("div");
   content.classList.add("lightbox-content");
 
@@ -58,13 +88,15 @@ title.textContent = cardTitle;
   content.appendChild(imageLightBox);
   content.appendChild(chevronRight);
   content.appendChild(closeBtn);
-  container.appendChild(content);
-  container.appendChild(title)
-  photographerPageDOM.appendChild(container);
+  lightbox.appendChild(content);
+  lightbox.appendChild(title)
+
+  return { lightBox }
+
 }
 
 function closeLightBox() {
-  console.log("image fermée");
+  lightbox.classList.toggle("active");
   lightBoxActive = false;
 }
 

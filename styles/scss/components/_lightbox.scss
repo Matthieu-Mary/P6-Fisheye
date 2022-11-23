@@ -1,4 +1,5 @@
-.container-lightbox  {
+.lightbox  {
+    display: none;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -6,11 +7,15 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: rgb(0, 0, 0, 0.5);
+    background-color: #E5E5E5;
     position: fixed;
     z-index: 1;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    &.active {
+        display: flex;
+    }
 
     .lightbox-content {
         margin: 0;
@@ -19,8 +24,7 @@
         justify-content: center;
         align-items: center;
         width: 70%;
-        height: 98%;
-        background-color: white;
+        height: 90%;
         border-radius: 5px;
 
         .chevron-left, .chevron-right {
@@ -33,15 +37,23 @@
         .lightbox-img, .lightbox-video {
             width:88%;
             height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
         }
         .lightbox-close {
             position: absolute;
-            top: 1.5%;
-            right: 2%;
+            top: 0;
+            right: 1%;
             color: var(--primary-2);
-            font-size: 2.5rem;
+            font-size: 3rem;
             cursor: pointer;
         }
+    }
+    h3 {
+        color: var(--primary-2);
+        font-size: 28px;
+        width: 70%;
+        margin: 10px 0 0 8% 
     }
 
 }
