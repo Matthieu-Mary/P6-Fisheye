@@ -18,10 +18,29 @@
     </header>
 
     <main id="main">
+      <!-- PHOTOGRAPHER HEADER CARD -->
       <div class="photographer-header">
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
 
+      <!-- SORT MEDIAS -->
+      <div class="sort-medias">
+        <label for="sort-options">Trier par</label>
+        <div class="select-container">
+          <select 
+          name="sort-options" 
+          id="sort-options" 
+          >
+          <option value="popularity">Popularité</option>
+          <option value="date">Date</option>
+          <option value="title">Titre</option>
+        </select>
+        <i class="chevron-down fa-solid fa-chevron-down"></i>
+        <!-- <i class="chevron-up fa-solid fa-chevron-up"></i> -->
+        </div>
+      </div>
+
+      <!-- DISPLAY MEDIAS -->
       <section class="medias"></section>
 
       <!-- ENCART -->

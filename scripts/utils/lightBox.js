@@ -17,13 +17,13 @@ function lightBox(e) {
 
   lightbox.classList.add("active");
 
-  createLightBox(lightbox);
+    createLightBox(lightbox);
 }
 
 function createLightBox(lightbox) {
   // GLOBAL
   const allMedias = getAllMedias();
-  const currentKey = Number(lightbox.dataset.key);
+  const currentKey = lightbox.dataset.key;
   console.log(currentKey + " current")
   const currentImage = allMedias[currentKey].querySelector("img");
   // const currentVideo = allMedias[currentKey].querySelector("video");
@@ -73,14 +73,14 @@ function previousImage(lightbox) {
     currentKey -= 1;
     lightbox.dataset.key = currentKey;
     createLightBox(lightbox);
-  }
+  } 
 }
 
 function nextImage(lightbox, allMedias) {
   let currentKey = parseInt(lightbox.dataset.key);
   if (currentKey <= allMedias.length - 1) {
-    currentKey += 1 ;
+    currentKey += 1;
     lightbox.dataset.key = currentKey;
-    createLightBox(lightbox)
+    createLightBox(lightbox);
   }
 }
