@@ -14,7 +14,6 @@ function lightBox(e) {
   const indexMedia = allMedias.indexOf(currentMedia);
 
   lightbox.dataset.key = indexMedia;
-
   lightbox.classList.add("active");
 
     createLightBox(lightbox);
@@ -39,18 +38,6 @@ function createLightBox(lightbox) {
   // videoLightBox.classList.add("lightbox-video");
   // videoLightBox.setAttribute("src", currentVideo);
   
-  // LEFT CHEVRON
-  const chevronLeft = document.querySelector(".chevron-left");
-  chevronLeft.addEventListener("click", () =>
-  previousImage(lightbox)
-  );
-  
-  // RIGH CHEVRON
-  const chevronRight = document.querySelector(".chevron-right");
-  chevronRight.addEventListener("click", () =>
-  nextImage(lightbox, allMedias)
-  );
-  
   // CLOSE BUTTON
   const closeBtn = document.querySelector(".lightbox-close");
   closeBtn.addEventListener("click", () => closeLightBox(lightbox));
@@ -67,7 +54,9 @@ function closeLightBox(lightbox) {
   lightBoxActive = false;
 }
 
-function previousImage(lightbox) {
+// LES DEUX FONCTIONS SONT APPELES LE DOUBLE DE CE QUI EST CLIQUE CAR CHEVRON RESTE
+function previousImage() {
+  const lightbox = document.querySelector(".lightbox");
   let currentKey = parseInt(lightbox.dataset.key);
   if(currentKey > 0) {
     currentKey -= 1;
@@ -76,7 +65,9 @@ function previousImage(lightbox) {
   } 
 }
 
-function nextImage(lightbox, allMedias) {
+function nextImage() {
+  const lightbox = document.querySelector(".lightbox");
+  const allMedias = getAllMedias();
   let currentKey = parseInt(lightbox.dataset.key);
   if (currentKey <= allMedias.length - 1) {
     currentKey += 1;

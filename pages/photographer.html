@@ -25,18 +25,17 @@
 
       <!-- SORT MEDIAS -->
       <div class="sort-medias">
-        <label for="sort-options">Trier par</label>
-        <div class="select-container">
-          <select 
-          name="sort-options" 
-          id="sort-options" 
-          >
-          <option value="popularity">Popularité</option>
-          <option value="date">Date</option>
-          <option value="title">Titre</option>
-        </select>
-        <i class="chevron-down fa-solid fa-chevron-down"></i>
-        <!-- <i class="chevron-up fa-solid fa-chevron-up"></i> -->
+        <label for="drop-btn">Trier par</label>
+        <div class="dropdown">
+          <button onclick="dropdown(event)">Popularité</button>
+          <i class="fa-solid fa-chevron-down"></i>
+          <ul class="dropdown-options">
+            <li onclick="selectedOption(event, 'Popularité')" data-value="popularity" role="option">Popularité</li>
+            <li onclick="selectedOption(event, 'Date')"  
+            data-value="date" role="option">Date</li>
+            <li onclick="selectedOption(event, 'Titre')" 
+             data-value="title" role="option">Titre</li>
+          </ul>
         </div>
       </div>
 
@@ -79,11 +78,12 @@
 			</div>
 		</div>
 
+    <!-- LIGHTBOX -->
     <div class="lightbox">
       <div class="lightbox-content">
-        <i class="chevron-left fa-sharp fa-solid fa-chevron-left"></i>
+        <i onclick="previousImage()" class="chevron-left fa-sharp fa-solid fa-chevron-left"></i>
         <img class="lightbox-img" />
-        <i class="chevron-right fa-sharp fa-solid fa-chevron-right"></i>
+        <i onclick="nextImage()" class="chevron-right fa-sharp fa-solid fa-chevron-right"></i>
         <i class="lightbox-close fa-sharp fa-solid fa-xmark"></i>
       </div>
       <h3></h3>
@@ -97,7 +97,10 @@
 
     <!-- MEDIAS FACTORY -->
     <script src="../scripts/factories/MediasFactory.js"></script>
-    
+
+    <!-- DROP-DOWN LIST -->
+    <script src="../scripts/utils/dropdownList.js"></script>
+
     <!-- LIKES MANAGER -->
     <script src="../scripts/utils/likesManager.js"></script>
 
