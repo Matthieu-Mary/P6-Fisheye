@@ -1,4 +1,3 @@
-const lightbox = document.querySelector(".lightbox");
 let lightBoxActive = false;
 
 function getAllMedias() {
@@ -7,6 +6,7 @@ function getAllMedias() {
 }
 
 function lightBox(e) {
+  const lightbox = document.querySelector(".lightbox");
   // current card
   const { currentTarget } = e;
   const currentMedia = currentTarget.parentNode;
@@ -15,114 +15,72 @@ function lightBox(e) {
 
   lightbox.dataset.key = indexMedia;
 
-  lightbox.classList.toggle("active");
+  lightbox.classList.add("active");
 
-  createLightBox()
-
-  lightBoxActive = true;
+  createLightBox(lightbox);
 }
 
-function createLightBox() {
+function createLightBox(lightbox) {
   // GLOBAL
   const allMedias = getAllMedias();
-  const currentKey = lightbox.dataset.key;
-  const currentImage = allMedias[currentKey].querySelector("img").cloneNode(true);
-  console.log(currentImage)
+  const currentKey = Number(lightbox.dataset.key);
+  console.log(currentKey + " current")
+  const currentImage = allMedias[currentKey].querySelector("img");
   // const currentVideo = allMedias[currentKey].querySelector("video");
   // console.log(currentVideo)
   const currentTitle = allMedias[currentKey].querySelector("h3").textContent;
-  console.log(currentTitle)
-
-  const content = document.createElement("div");
-  content.classList.add("lightbox-content");
-
+  
   // IMAGES
-  const imageLightBox = document.createElement("img");
-  imageLightBox.classList.add("lightbox-img");
+  const imageLightBox = document.querySelector(".lightbox-img");
   imageLightBox.setAttribute("src", currentImage.src);
-
-
+  
   // VIDEO
   // const videoLightBox = document.createElement("video");
   // videoLightBox.classList.add("lightbox-video");
   // videoLightBox.setAttribute("src", currentVideo);
   
-
   // LEFT CHEVRON
-  const chevronLeft = document.createElement("i");
-  chevronLeft.classList.add("chevron-left");
-  chevronLeft.innerHTML = `<i class="fa-sharp fa-solid fa-chevron-left"></i>`;
+  const chevronLeft = document.querySelector(".chevron-left");
   chevronLeft.addEventListener("click", () =>
-    previousImage()
+  previousImage(lightbox)
   );
-
+  
   // RIGH CHEVRON
-  const chevronRight = document.createElement("i");
-  chevronRight.classList.add("chevron-right");
-  chevronRight.innerHTML = `<i class="fa-sharp fa-solid fa-chevron-right"></i>`;
+  const chevronRight = document.querySelector(".chevron-right");
   chevronRight.addEventListener("click", () =>
-    nextImage()
+  nextImage(lightbox, allMedias)
   );
-
+  
   // CLOSE BUTTON
-  const closeBtn = document.createElement("i");
-  closeBtn.innerHTML = `<i class="fa-sharp fa-solid fa-xmark"></i>`;
-  closeBtn.classList.add("lightbox-close");
-  closeBtn.addEventListener("click", () => closeLightBox());
-
+  const closeBtn = document.querySelector(".lightbox-close");
+  closeBtn.addEventListener("click", () => closeLightBox(lightbox));
+  
   //   TITLE
-  const title = document.createElement("h3");
+  const title = document.querySelector(".lightbox h3");
   title.textContent = currentTitle;
-
-  content.appendChild(chevronLeft);
-  content.appendChild(imageLightBox);
-  content.appendChild(chevronRight);
-  content.appendChild(closeBtn);
-  lightbox.appendChild(content);
-  lightbox.appendChild(title);
-
-  return { lightBox };
+  
+  return { lightbox };
 }
 
-function closeLightBox() {
-  lightbox.classList.toggle("active");
+function closeLightBox(lightbox) {
+  lightbox.classList.remove("active");
   lightBoxActive = false;
 }
 
-function previousImage() {
-  let currentKey = Number(lightbox.dataset.key);
+function previousImage(lightbox) {
+  let currentKey = parseInt(lightbox.dataset.key);
   if(currentKey > 0) {
-    const newCurrentKey = currentKey - 1;
-    lightbox.dataset.key = newCurrentKey;
-    createLightBox()
+    currentKey -= 1;
+    lightbox.dataset.key = currentKey;
+    createLightBox(lightbox);
   }
 }
 
-function nextImage() {
-  let currentKey = Number(lightbox.dataset.key);
-  const newCurrentKey = currentKey + 1;
-  lightbox.dataset.key = newCurrentKey;
-  createLightBox()
+function nextImage(lightbox, allMedias) {
+  let currentKey = parseInt(lightbox.dataset.key);
+  if (currentKey <= allMedias.length - 1) {
+    currentKey += 1 ;
+    lightbox.dataset.key = currentKey;
+    createLightBox(lightbox)
+  }
 }
-
-// CREER UNE LIGHTBOX AVEC SEULEMENT DES ELEMENTS CHANGEANTS, IL FAUT DONC SUPPRIMER LA PARTIE CONTENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// CREER UNE LIGHTBOX AVEC SEULEMENT DES ELEMENTS CHANGEANTS, IL FAUT DONC SUPPRIMER LA PARTIE CONTENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// CREER UNE LIGHTBOX AVEC SEULEMENT DES ELEMENTS CHANGEANTS, IL FAUT DONC SUPPRIMER LA PARTIE CONTENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// CREER UNE LIGHTBOX AVEC SEULEMENT DES ELEMENTS CHANGEANTS, IL FAUT DONC SUPPRIMER LA PARTIE CONTENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// CREER UNE LIGHTBOX AVEC SEULEMENT DES ELEMENTS CHANGEANTS, IL FAUT DONC SUPPRIMER LA PARTIE CONTENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// CREER UNE LIGHTBOX AVEC SEULEMENT DES ELEMENTS CHANGEANTS, IL FAUT DONC SUPPRIMER LA PARTIE CONTENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// CREER UNE LIGHTBOX AVEC SEULEMENT DES ELEMENTS CHANGEANTS, IL FAUT DONC SUPPRIMER LA PARTIE CONTENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// CREER UNE LIGHTBOX AVEC SEULEMENT DES ELEMENTS CHANGEANTS, IL FAUT DONC SUPPRIMER LA PARTIE CONTENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// CREER UNE LIGHTBOX AVEC SEULEMENT DES ELEMENTS CHANGEANTS, IL FAUT DONC SUPPRIMER LA PARTIE CONTENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// CREER UNE LIGHTBOX AVEC SEULEMENT DES ELEMENTS CHANGEANTS, IL FAUT DONC SUPPRIMER LA PARTIE CONTENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// CREER UNE LIGHTBOX AVEC SEULEMENT DES ELEMENTS CHANGEANTS, IL FAUT DONC SUPPRIMER LA PARTIE CONTENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// CREER UNE LIGHTBOX AVEC SEULEMENT DES ELEMENTS CHANGEANTS, IL FAUT DONC SUPPRIMER LA PARTIE CONTENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// CREER UNE LIGHTBOX AVEC SEULEMENT DES ELEMENTS CHANGEANTS, IL FAUT DONC SUPPRIMER LA PARTIE CONTENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// CREER UNE LIGHTBOX AVEC SEULEMENT DES ELEMENTS CHANGEANTS, IL FAUT DONC SUPPRIMER LA PARTIE CONTENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// CREER UNE LIGHTBOX AVEC SEULEMENT DES ELEMENTS CHANGEANTS, IL FAUT DONC SUPPRIMER LA PARTIE CONTENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// CREER UNE LIGHTBOX AVEC SEULEMENT DES ELEMENTS CHANGEANTS, IL FAUT DONC SUPPRIMER LA PARTIE CONTENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// CREER UNE LIGHTBOX AVEC SEULEMENT DES ELEMENTS CHANGEANTS, IL FAUT DONC SUPPRIMER LA PARTIE CONTENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// CREER UNE LIGHTBOX AVEC SEULEMENT DES ELEMENTS CHANGEANTS, IL FAUT DONC SUPPRIMER LA PARTIE CONTENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// CREER UNE LIGHTBOX AVEC SEULEMENT DES ELEMENTS CHANGEANTS, IL FAUT DONC SUPPRIMER LA PARTIE CONTENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// CREER UNE LIGHTBOX AVEC SEULEMENT DES ELEMENTS CHANGEANTS, IL FAUT DONC SUPPRIMER LA PARTIE CONTENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// CREER UNE LIGHTBOX AVEC SEULEMENT DES ELEMENTS CHANGEANTS, IL FAUT DONC SUPPRIMER LA PARTIE CONTENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
