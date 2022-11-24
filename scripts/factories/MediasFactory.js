@@ -41,9 +41,9 @@ const MediaFactory = (media, rightPhotographer, rightMedias) => {
     mediaInfos.appendChild(cardLikes);
 
     const vid = document.createElement("video");
-    vid.addEventListener("click", (e) => lightBox(e, rightMedias));
+    vid.addEventListener("click", (e) => lightBox(e));
     const img = document.createElement("img");
-    img.addEventListener("click", (e) => lightBox(e, rightMedias));
+    img.addEventListener("click", (e) => lightBox(e));
 
     if (image) {
       getMediaImage()
