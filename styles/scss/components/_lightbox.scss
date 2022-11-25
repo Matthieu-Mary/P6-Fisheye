@@ -32,6 +32,9 @@
             color: var(--primary-2);
             margin: 0 auto;
             cursor: pointer;
+            &.inactive {
+                color: black;
+            }
         }
 
         .lightbox-img, .lightbox-video {

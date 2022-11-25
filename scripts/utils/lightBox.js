@@ -23,7 +23,6 @@ function createLightBox(lightbox) {
   // GLOBAL
   const allMedias = getAllMedias();
   const currentKey = lightbox.dataset.key;
-  console.log(currentKey + " current")
   const currentImage = allMedias[currentKey].querySelector("img");
   // const currentVideo = allMedias[currentKey].querySelector("video");
   // console.log(currentVideo)
@@ -45,6 +44,21 @@ function createLightBox(lightbox) {
   //   TITLE
   const title = document.querySelector(".lightbox h3");
   title.textContent = currentTitle;
+
+  // Apply black color to chevron if first or last image displayed
+  function toggleChevronStyle() {
+    const chevronLeft = document.querySelector(".chevron-left");
+    const chevronRight = document.querySelector(".chevron-right");
+    if (Number(currentKey) === allMedias.length - 1 ) {
+      chevronRight.classList.add("inactive");
+    } else if (Number(currentKey) === 0) {
+      chevronLeft.classList.add("inactive");
+    } else {
+      chevronRight.classList.remove("inactive")
+      chevronLeft.classList.remove("inactive")
+    }
+  }
+  toggleChevronStyle();
   
   return { lightbox };
 }

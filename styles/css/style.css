@@ -470,6 +470,9 @@ form button {
   margin: 0 auto;
   cursor: pointer;
 }
+.lightbox .lightbox-content .chevron-left.inactive, .lightbox .lightbox-content .chevron-right.inactive {
+  color: black;
+}
 .lightbox .lightbox-content .lightbox-img, .lightbox .lightbox-content .lightbox-video {
   width: 88%;
   height: 100%;
