@@ -48,9 +48,13 @@
     width: 170px;
     height: 70px;
     border: none;
-    background-color: #901C1C;
+    background-color: var(--primary-2);
     border-radius: 5px;
     cursor: pointer;
+    &:hover {
+        background-color: var(--primary-3);
+        color: black; 
+    }
 }
 
 .photographer-header img {

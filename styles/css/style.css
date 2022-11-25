@@ -98,9 +98,13 @@
   width: 170px;
   height: 70px;
   border: none;
-  background-color: #901C1C;
+  background-color: var(--primary-2);
   border-radius: 5px;
   cursor: pointer;
+}
+.contact_button:hover {
+  background-color: var(--primary-3);
+  color: black;
 }
 
 .photographer-header img {
@@ -297,6 +301,7 @@ a {
 :root {
   --primary-1: #D3573C;
   --primary-2: #901C1C;
+  --primary-3: #DB8876;
   --grey-1: #525252;
 }
 
