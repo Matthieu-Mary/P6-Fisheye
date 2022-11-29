@@ -21,35 +21,31 @@ function selectedOption(event, name) {
     button.textContent = name;
     dropdown.classList.toggle('active');
 
-    async function sortMediasBySelectedOption() {
-        const medias = await getMedias();
-        console.log(medias)
-        const allMedias = getAllMedias();
+    sortMediasBySelectedOption(name)
 
-        // Likes for popularity sort
-        const allLikesArr = [];
-        allMedias.forEach(media => allLikesArr.push(Number(media.querySelector(".likes-number").textContent)));
-        // Titles for alphabetic sort
-        const allTitlesArr = [];
-        allMedias.forEach(media => allTitlesArr.push(media.querySelector('.media-infos h3').textContent));
-
-        switch(name) {
-            case 'Popularité':
-                console.log("les plus populaires");
-                const sortedByPopularity = allLikesArr.sort((a, b) => b - a);
-                console.log(sortedByPopularity)
-                break;
-            case "Date":
-                console.log("Les Dates");
-                break;
-            case "Titre":
-                console.log("Trie par Titres");
-                const sortedByTitle = allTitlesArr.sort();
-                console.log(sortedByTitle)
-                break;
-            default:
-                console.log("Une erreur est survenue")
-        }
-    }
-    sortMediasBySelectedOption()
 }
+
+function sortMediasBySelectedOption(name) {
+    const photographerMedias = document.querySelector(".medias");
+    let allMedias = getAllMedias();
+
+    switch(name) {
+        case 'Popularité':
+            // From more liked to less
+            allMedias.sort((media, nextMedia) => Number(nextMedia.querySelector(".likes-number").textContent) - Number(media.querySelector(".likes-number").textContent));
+            break;
+        case "Date":
+            // From most recent to oldest
+            allMedias.sort((media, nextMedia) =>  nextMedia.dataset.date.localeCompare(media.dataset.date))
+            break;
+        case "Titre":
+            // Alphabetic sort
+            allMedias.sort((media, nextMedia) => media.querySelector(".media-infos h3").textContent.localeCompare(nextMedia.querySelector(".media-infos h3").textContent));
+            break;
+        default:
+            alert("Une erreur est survenue");
+    }
+    photographerMedias.innerHTML = "";
+    allMedias.forEach(media => photographerMedias.appendChild(media))
+}
+

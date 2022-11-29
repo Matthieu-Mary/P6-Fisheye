@@ -1,6 +1,6 @@
 const MediaFactory = (media, rightPhotographer) => {
 
-  const { title, image, video, likes } = media;
+  const { title, image, video, likes, date } = media;
 
   const { name } = rightPhotographer;
 
@@ -17,6 +17,8 @@ const MediaFactory = (media, rightPhotographer) => {
 
     const card = document.createElement("div");
     card.classList.add("media-card");
+    // Use dataset to sore date in html element and use it in another JS file to sort medias by date
+    card.dataset.date = date;
 
     const mediaInfos = document.createElement("div");
     mediaInfos.classList.add("media-infos");
