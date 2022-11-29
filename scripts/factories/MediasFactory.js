@@ -1,6 +1,6 @@
-const MediaFactory = (media, rightPhotographer, rightMedias) => {
+const MediaFactory = (media, rightPhotographer) => {
 
-  const { id, title, image, video, likes } = media;
+  const { title, image, video, likes } = media;
 
   const { name } = rightPhotographer;
 

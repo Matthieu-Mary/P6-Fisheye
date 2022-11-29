@@ -30,7 +30,6 @@ function createLightBox(lightbox) {
   const mediaVideo = document.createElement("video");
   const currentTitle = allMedias[currentKey].querySelector("h3").textContent;
 
-  console.log(allMedias[currentKey].firstChild.tagName)
   // IMAGES OR VIDEO
   if (allMedias[currentKey].firstChild.src.includes(".jpg")) {
     mediaImage.classList.add("lightbox-img");
@@ -38,8 +37,7 @@ function createLightBox(lightbox) {
     currentMedia.appendChild(mediaImage);
     // Delete first child beacause we need to display images one by one
     if(currentMedia.childElementCount > 1) {
-      console.log(currentMedia.firstChild)
-      currentMedia.removeChild(currentMedia.firstChild)
+      currentMedia.removeChild(currentMedia.firstChild);
     }
   } else {
     currentMedia.appendChild(mediaVideo);
@@ -47,8 +45,7 @@ function createLightBox(lightbox) {
     mediaVideo.setAttribute("src", currentVideo.src);
     mediaVideo.setAttribute("controls", true);
     if(currentMedia.childElementCount > 1) {
-      console.log(currentMedia.firstChild)
-      currentMedia.removeChild(currentMedia.firstChild)
+      currentMedia.removeChild(currentMedia.firstChild);
     }
   }
 

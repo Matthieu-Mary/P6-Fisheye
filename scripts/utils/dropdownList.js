@@ -1,3 +1,8 @@
+function getAllMedias() {
+    const allMediasNodes = document.querySelectorAll(".media-card");
+    return Array.prototype.slice.call(allMediasNodes);
+}
+
 function dropdown(event) {
     const button = event.currentTarget;
     const dropdown = button.parentNode;
@@ -7,8 +12,6 @@ function dropdown(event) {
     } else {
         button.setAttribute('aria-expanded', false);
     }
-    
-    // setTimeout( () => button.focus() , 50);
 }
 
 function selectedOption(event, name) {
@@ -18,72 +21,35 @@ function selectedOption(event, name) {
     button.textContent = name;
     dropdown.classList.toggle('active');
 
-    // const currentDropdown = dropdown.querySelectorAll(".dropdown-hide");
-    // for (let i = 0; i < currentDropdown.length; i++) {
-    //     currentDropdown[i].classList.remove("dropdown-hide");
-    //     currentDropdown[i].setAttribute("aria-selected","false");
-    // }
-    
-    // currentTarget.classList.add("dropdown-hide");
-    // currentTarget.setAttribute("aria-selected","true");
+    async function sortMediasBySelectedOption() {
+        const medias = await getMedias();
+        console.log(medias)
+        const allMedias = getAllMedias();
 
-    // dropdown.querySelector('button').textContent = dropdown.querySelector(`[data-value=${option}]`).textContent;
+        // Likes for popularity sort
+        const allLikesArr = [];
+        allMedias.forEach(media => allLikesArr.push(Number(media.querySelector(".likes-number").textContent)));
+        // Titles for alphabetic sort
+        const allTitlesArr = [];
+        allMedias.forEach(media => allTitlesArr.push(media.querySelector('.media-infos h3').textContent));
 
-    // dropdown.classList.toggle('dropdown-open');
-    // if (dropdown.classList.contains('dropdown-open')) {
-    //     button.setAttribute('aria-expanded', true);
-    // } else {
-    //     button.setAttribute('aria-expanded', false);
-    // }
-    // dropdownList.setAttribute("aria-activedescendant",target.id);
-
-    // orderWork();
-    // setTimeout( () => dropdown.querySelector('button').focus() , 50);
-    
+        switch(name) {
+            case 'Popularité':
+                console.log("les plus populaires");
+                const sortedByPopularity = allLikesArr.sort((a, b) => b - a);
+                console.log(sortedByPopularity)
+                break;
+            case "Date":
+                console.log("Les Dates");
+                break;
+            case "Titre":
+                console.log("Trie par Titres");
+                const sortedByTitle = allTitlesArr.sort();
+                console.log(sortedByTitle)
+                break;
+            default:
+                console.log("Une erreur est survenue")
+        }
+    }
+    sortMediasBySelectedOption()
 }
-
-// function orderWork() {
-//     const photographWork = document.querySelector(".photograph-work");
-//     let contentNodes = document.querySelectorAll('.thumb-imgfull');
-//     const order = document.querySelector(".dropdown").dataset.value;
-//     // Converti la nodelist en array, le call appelle la nodelist en tant que 'this' dans la méthode et array.prototype défini le type de 'this'
-//     let content = Array.prototype.slice.call(contentNodes);
-    
-//     switch (order) {
-//         case "popularity":
-//             // De + à -
-//             content.sort(
-//                 function(item, nextItem){
-//                     let firstNumber = parseInt(item.querySelector(".number-likes").textContent);
-//                     let secondNumber = parseInt(nextItem.querySelector(".number-likes").textContent);
-//                     return secondNumber - firstNumber;
-//                 }
-//             )
-//             break;
-//         case "date":
-//             // De + à -
-//             content.sort(
-//                 function(item, nextItem){
-//                     let firstString = item.querySelector("[data-date]").dataset.date;
-//                     let secondString = nextItem.querySelector("[data-date]").dataset.date;
-//                     return secondString.localeCompare(firstString);
-//                 }
-//             )
-//             break;
-//         case "title":
-//             // De A à B
-//             content.sort(
-//                 function(item, nextItem){
-//                     let firstString = item.querySelector(".thumb-imgfull>:nth-child(2)").textContent.toLowerCase();
-//                     let secondString = nextItem.querySelector(".thumb-imgfull>:nth-child(2)").textContent.toLowerCase();
-//                     return firstString.localeCompare(secondString);
-//                 }
-//             )
-//             break;
-//         default:
-//             break;
-//     }
-
-//     photographWork.innerHTML = "";
-//     content.forEach(item => photographWork.appendChild(item));
-// }
