@@ -575,6 +575,9 @@ form button {
   position: relative;
   padding: 14px 20px 14px;
 }
+.sort-medias .dropdown .dropdown-options li:hover {
+  cursor: pointer;
+}
 .sort-medias .dropdown .dropdown-options li::after {
   content: "";
   position: absolute;

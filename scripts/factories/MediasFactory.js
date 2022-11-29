@@ -1,5 +1,4 @@
 const MediaFactory = (media, rightPhotographer) => {
-
   const { title, image, video, likes, date } = media;
 
   const { name } = rightPhotographer;
@@ -14,7 +13,6 @@ const MediaFactory = (media, rightPhotographer) => {
   const mediasSection = document.querySelector(".medias");
 
   function createMediaCard() {
-
     const card = document.createElement("div");
     card.classList.add("media-card");
     // Use dataset to sore date in html element and use it in another JS file to sort medias by date
@@ -27,8 +25,10 @@ const MediaFactory = (media, rightPhotographer) => {
     h3.textContent = title;
 
     const cardLikes = document.createElement("div");
-    cardLikes.classList.add('card-likes');
-    cardLikes.addEventListener("click", (e) => increaseLikesCard(e, rightPhotographer));
+    cardLikes.classList.add("card-likes");
+    cardLikes.addEventListener("click", (e) =>
+      increaseLikesCard(e, rightPhotographer)
+    );
 
     const likesNumber = document.createElement("p");
     likesNumber.classList.add("likes-number");
@@ -42,26 +42,25 @@ const MediaFactory = (media, rightPhotographer) => {
     mediaInfos.appendChild(h3);
     mediaInfos.appendChild(cardLikes);
 
-    const vid = document.createElement("video");
-    vid.addEventListener("click", (e) => lightBox(e));
+    // Images
     const img = document.createElement("img");
     img.addEventListener("click", (e) => lightBox(e));
-
     if (image) {
-      getMediaImage()
+      getMediaImage();
     }
-    if (video) {
-      getMediaVideo()
-    }
-
     function getMediaImage() {
       img.setAttribute("src", picture);
       card.appendChild(img);
     }
 
+    // Video
+    const vid = document.createElement("video");
+    vid.addEventListener("click", (e) => lightBox(e));
+    if (video) {
+      getMediaVideo();
+    }
     function getMediaVideo() {
       vid.setAttribute("src", videoSrc);
-      vid.setAttribute("controls", true);
       card.appendChild(vid);
     }
 
@@ -71,14 +70,11 @@ const MediaFactory = (media, rightPhotographer) => {
     return { mediasSection };
   }
 
-  
   return { createMediaCard };
 };
 
-
 // ENCART
 function createEncart(rightPhotographer, totalLikes) {
-
   const { price } = rightPhotographer;
 
   const totalLikesP = document.querySelector(".total-likes p");
@@ -86,4 +82,3 @@ function createEncart(rightPhotographer, totalLikes) {
   const photographerPrice = document.querySelector(".encart .price");
   photographerPrice.textContent = `${price}€ / jour`;
 }
-

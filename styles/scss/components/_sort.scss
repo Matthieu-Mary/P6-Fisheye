@@ -63,6 +63,9 @@
       li {
         position: relative;
         padding: 14px 20px 14px;
+        &:hover {
+          cursor: pointer;
+        }
         &::after {
           content: "";
           position: absolute;
