@@ -473,10 +473,22 @@ form button {
 .lightbox .lightbox-content .chevron-left.inactive, .lightbox .lightbox-content .chevron-right.inactive {
   color: black;
 }
-.lightbox .lightbox-content .lightbox-img, .lightbox .lightbox-content .lightbox-video {
+.lightbox .lightbox-content .lightbox-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 88%;
   height: 100%;
+}
+.lightbox .lightbox-content .lightbox-media .lightbox-img {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+  border-radius: 10px;
+}
+.lightbox .lightbox-content .lightbox-media .lightbox-video {
+  width: 100%;
+  height: auto;
   border-radius: 10px;
 }
 .lightbox .lightbox-content .lightbox-close {

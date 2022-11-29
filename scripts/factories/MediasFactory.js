@@ -59,7 +59,7 @@ const MediaFactory = (media, rightPhotographer, rightMedias) => {
 
     function getMediaVideo() {
       vid.setAttribute("src", videoSrc);
-      vid.setAttribute("controls", true)
+      vid.setAttribute("controls", true);
       card.appendChild(vid);
     }
 

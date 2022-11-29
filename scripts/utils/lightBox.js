@@ -23,29 +23,32 @@ function createLightBox(lightbox) {
   // GLOBAL
   const allMedias = getAllMedias();
   const currentKey = lightbox.dataset.key;
+  const currentMedia = document.querySelector(".lightbox-media");
   const currentImage = allMedias[currentKey].querySelector("img");
-  const imageLightBox = document.querySelector(".lightbox-img");
   const currentVideo = allMedias[currentKey].querySelector("video");
+  const mediaImage = document.createElement("img");
   const mediaVideo = document.createElement("video");
   const currentTitle = allMedias[currentKey].querySelector("h3").textContent;
 
-  console.log()
+  console.log(allMedias[currentKey].firstChild.tagName)
   // IMAGES OR VIDEO
   if (allMedias[currentKey].firstChild.src.includes(".jpg")) {
-    imageLightBox.setAttribute("src", currentImage.src);
+    mediaImage.classList.add("lightbox-img");
+    mediaImage.setAttribute("src", currentImage.src);
+    currentMedia.appendChild(mediaImage);
+    // Delete first child beacause we need to display images one by one
+    if(currentMedia.childElementCount > 1) {
+      console.log(currentMedia.firstChild)
+      currentMedia.removeChild(currentMedia.firstChild)
+    }
   } else {
-    imageLightBox.replaceWith(mediaVideo);
+    currentMedia.appendChild(mediaVideo);
     mediaVideo.classList.add("lightbox-video");
     mediaVideo.setAttribute("src", currentVideo.src);
     mediaVideo.setAttribute("controls", true);
-    const mediaVideoKey = mediaVideo.parentNode.parentNode.dataset.key;
-    console.log(currentKey);
-    if (mediaVideoKey !== currentKey) {
-      const mediaImage = document.createElement("img");
-      mediaImage.classList.add("lightbox-img");
-      mediaImage.setAttribute("src", currentImage.src);
-      mediaVideo.replaceWith(mediaImage);
-      console.log(mediaImage);
+    if(currentMedia.childElementCount > 1) {
+      console.log(currentMedia.firstChild)
+      currentMedia.removeChild(currentMedia.firstChild)
     }
   }
 
@@ -95,7 +98,7 @@ function nextImage() {
   const lightbox = document.querySelector(".lightbox");
   const allMedias = getAllMedias();
   let currentKey = parseInt(lightbox.dataset.key);
-  if (currentKey <= allMedias.length - 1) {
+  if (currentKey <= allMedias.length - 2) {
     currentKey += 1;
     lightbox.dataset.key = currentKey;
     createLightBox(lightbox);
