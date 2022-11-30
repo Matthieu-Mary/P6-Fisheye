@@ -17,9 +17,9 @@ function photographerHomepage(data) {
     const h2 = document.createElement("h2");
     h2.textContent = name;
     h2.ariaLabel = "photographer name";
-    const h6 = document.createElement("h6");
-    h6.textContent = `${city}, ${country}`;
-    h6.ariaLabel = "photographer location";
+    const h3 = document.createElement("h3");
+    h3.textContent = `${city}, ${country}`;
+    h3.ariaLabel = "photographer location";
     const p = document.createElement("p");
     p.textContent = tagline;
     p.ariaLabel = "photographer short description";
@@ -29,7 +29,7 @@ function photographerHomepage(data) {
     article.appendChild(link);
     link.appendChild(img);
     link.appendChild(h2);
-    link.appendChild(h6);
+    link.appendChild(h3);
     link.appendChild(p);
     link.appendChild(span);
     return article;
@@ -51,12 +51,12 @@ function photographerPage(data) {
     photographerInfos.classList.add("photographer-infos");
     const h1 = document.createElement("h1");
     h1.textContent = name;
-    const h6 = document.createElement("h6");
-    h6.textContent = `${city}, ${country}`;
+    const h2 = document.createElement("h2");
+    h2.textContent = `${city}, ${country}`;
     const p = document.createElement("p");
     p.textContent = tagline;
     photographerInfos.appendChild(h1);
-    photographerInfos.appendChild(h6);
+    photographerInfos.appendChild(h2);
     photographerInfos.appendChild(p);
     const img = document.createElement("img");
     img.setAttribute("src", picture);

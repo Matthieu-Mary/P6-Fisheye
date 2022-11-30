@@ -1,5 +1,3 @@
-let lightBoxActive = false;
-
 function getAllMedias() {
   const allMediasNodes = document.querySelectorAll(".media-card");
   return Array.prototype.slice.call(allMediasNodes);
@@ -77,7 +75,6 @@ function createLightBox(lightbox) {
 
 function closeLightBox(lightbox) {
   lightbox.classList.remove("active");
-  lightBoxActive = false;
 }
 
 // LES DEUX FONCTIONS SONT APPELES LE DOUBLE DE CE QUI EST CLIQUE CAR CHEVRON RESTE

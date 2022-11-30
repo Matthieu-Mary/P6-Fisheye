@@ -77,7 +77,7 @@
         }
       }
     }
-    &.active { 
+    &.active {
       border-radius: 5px 5px 0 0;
       i {
         transform: rotate(180deg);
@@ -85,6 +85,20 @@
       ul {
         display: block;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .sort-medias {
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    label {
+      margin: 0 0 10px 0;
+    }
+    .dropdown {
+      margin: 0;
     }
   }
 }

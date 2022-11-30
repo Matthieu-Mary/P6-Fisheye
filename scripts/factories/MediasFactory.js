@@ -1,6 +1,6 @@
 const MediaFactory = (media, rightPhotographer) => {
   const { title, image, video, likes, date } = media;
-
+  
   const { name } = rightPhotographer;
 
   // Get only photographers first name to get the right media images
@@ -13,38 +13,43 @@ const MediaFactory = (media, rightPhotographer) => {
   const mediasSection = document.querySelector(".medias");
 
   function createMediaCard() {
-    const card = document.createElement("div");
+    const card = document.createElement("figure");
     card.classList.add("media-card");
     // Use dataset to sore date in html element and use it in another JS file to sort medias by date
     card.dataset.date = date;
-
-    const mediaInfos = document.createElement("div");
+    
+    const mediaInfos = document.createElement("figcaption");
     mediaInfos.classList.add("media-infos");
-
+    
     const h3 = document.createElement("h3");
     h3.textContent = title;
-
+    
     const cardLikes = document.createElement("div");
     cardLikes.classList.add("card-likes");
+    cardLikes.setAttribute("role", "button");
+    cardLikes.setAttribute("aria-label", "likes");
     cardLikes.addEventListener("click", (e) =>
-      increaseLikesCard(e, rightPhotographer)
+    increaseLikesCard(e, rightPhotographer)
     );
-
+    
     const likesNumber = document.createElement("p");
     likesNumber.classList.add("likes-number");
     likesNumber.textContent = likes;
-
+    
     const heart = document.createElement("i");
     heart.innerHTML = `<i class="fa-sharp fa-solid fa-heart"></i>`;
-
+    
     cardLikes.appendChild(likesNumber);
     cardLikes.appendChild(heart);
     mediaInfos.appendChild(h3);
     mediaInfos.appendChild(cardLikes);
-
+    
     // Images
     const img = document.createElement("img");
-    img.setAttribute("alt", title)
+    img.setAttribute("alt", title);
+    img.setAttribute("tabindex", 0);
+    img.setAttribute("aria-haspopup", "dialog")
+    img.setAttribute("onkeydown", 'enterKeyPressed(event) ? lightBox(event) : undefined')
     img.addEventListener("click", (e) => lightBox(e));
     if (image) {
       getMediaImage();
@@ -56,7 +61,9 @@ const MediaFactory = (media, rightPhotographer) => {
 
     // Video
     const vid = document.createElement("video");
-    vid.setAttribute("alt", title)
+    vid.setAttribute("tabindex", 0);
+    vid.setAttribute("alt", title);
+    vid.setAttribute("onkeydown", 'enterKeyPressed(event) ? lightBox(event) : undefined')
     vid.addEventListener("click", (e) => lightBox(e));
     if (video) {
       getMediaVideo();

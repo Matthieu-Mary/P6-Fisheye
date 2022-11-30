@@ -37,7 +37,7 @@
   transition: 0, 25s;
   box-shadow: 0px 0px 10px #888888;
 }
-.photographer_section article a h6 {
+.photographer_section article a h3 {
   font-size: 13px;
   color: #901c1c;
 }
@@ -83,7 +83,7 @@
   font-weight: 400;
   line-height: 83px;
 }
-.photographer-header .photographer-infos h6 {
+.photographer-header .photographer-infos h2 {
   font-size: 24px;
   font-weight: 400;
   line-height: 31px;
@@ -603,6 +603,20 @@ form button {
 }
 .sort-medias .dropdown.active ul {
   display: block;
+}
+
+@media screen and (max-width: 550px) {
+  .sort-medias {
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .sort-medias label {
+    margin: 0 0 10px 0;
+  }
+  .sort-medias .dropdown {
+    margin: 0;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
