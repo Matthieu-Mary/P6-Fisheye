@@ -1,60 +1,63 @@
 .photographer_section {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    margin: 70px auto;
-    article {
-        justify-self: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        a {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            
-            h2 {
-                color: var(--primary-1);
-                font-size: 36px;
-            }
-            img {
-                height: 200px;
-                width: 200px;
-                border-radius: 50%;
-                object-fit: cover;        
-            }
-            h6 {
-                font-size: 13px;
-                color: #901C1C;
-            }
-            p {
-                font-size: 10px;
-            }
-            span {
-                font-size: 9px;
-                color: #757575;
-            }
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 70px;
+  margin: 70px auto;
+  article {
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      h2 {
+        color: var(--primary-1);
+        font-size: 36px;
+      }
+      img {
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        &:hover {
+          -o-transition: 0.25s;
+          -ms-transition: 0.25s;
+          -moz-transition: 0.25s;
+          -webkit-transition: 0.25s;
+          transition: 0,25s;
+          box-shadow: 0px 0px 10px #888888;
         }
+      }
+      h6 {
+        font-size: 13px;
+        color: #901c1c;
+      }
+      p {
+        font-size: 10px;
+      }
+      span {
+        font-size: 9px;
+        color: #757575;
+      }
     }
+  }
 }
 
 @media screen and (max-width: 1045px) {
-    .photographer_section {
-        grid-template-columns: 1fr 1fr;
-        gap: 35px;
-    }
-
+  .photographer_section {
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+  }
 }
-
 
 @media screen and (max-width: 768px) {
-    .photographer_section {
-        grid-template-columns: 1fr;
-        margin: 35px auto;
-    }
+  .photographer_section {
+    grid-template-columns: 1fr;
+    margin: 35px auto;
+  }
 }
-
-

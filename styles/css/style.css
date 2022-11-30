@@ -29,9 +29,17 @@
   border-radius: 50%;
   object-fit: cover;
 }
+.photographer_section article a img:hover {
+  -o-transition: 0.25s;
+  -ms-transition: 0.25s;
+  -moz-transition: 0.25s;
+  -webkit-transition: 0.25s;
+  transition: 0, 25s;
+  box-shadow: 0px 0px 10px #888888;
+}
 .photographer_section article a h6 {
   font-size: 13px;
-  color: #901C1C;
+  color: #901c1c;
 }
 .photographer_section article a p {
   font-size: 10px;

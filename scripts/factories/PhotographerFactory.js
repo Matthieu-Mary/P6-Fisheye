@@ -9,10 +9,11 @@ function photographerHomepage(data) {
 
     const article = document.createElement("article");
     const link = document.createElement("a");
+    link.setAttribute("aria-label", name)
     link.href = url;
     const img = document.createElement("img");
     img.setAttribute("src", picture);
-    img.alt = "photographer profil picture";
+    img.alt = `${name} profile picture`;
     const h2 = document.createElement("h2");
     h2.textContent = name;
     h2.ariaLabel = "photographer name";
@@ -34,7 +35,7 @@ function photographerHomepage(data) {
     return article;
   }
 
-  return { name, getUsersCardsHome };
+  return { getUsersCardsHome };
 }
 
 // Display Photographer header card on photographer page
@@ -59,6 +60,7 @@ function photographerPage(data) {
     photographerInfos.appendChild(p);
     const img = document.createElement("img");
     img.setAttribute("src", picture);
+    img.setAttribute("alt", `${name} profile picture`);
 
     photographerHeader.appendChild(photographerInfos);
     photographerHeader.appendChild(img);

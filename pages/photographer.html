@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <link href="../styles/css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -19,9 +19,9 @@
 
     <main id="main">
       <!-- PHOTOGRAPHER HEADER CARD -->
-      <div class="photographer-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div>
+      <section class="photographer-header">
+        <button class="contact_button" aria-label="Contact Me" onclick="displayModal()">Contactez-moi</button>
+      </section>
 
       <!-- SORT MEDIAS -->
       <div class="sort-medias">
@@ -65,13 +65,13 @@
 				<form class="contact-form">
 					<div>
 						<label for="form-firstname">Prénom</label>
-						<input id="form-firstname" type="text"/>
+						<input id="form-firstname" type="text" aria-label="First Name"/>
 						<label for="form-name">Nom</label>
-						<input id="form-name" type="text"/>
+						<input id="form-name" type="text" aria-label="Last Name"/>
 						<label for="form-email">Email</label>
-						<input id="form-email" type="email"/>
+						<input id="form-email" type="email" aria-label="Email"/>
 						<label for="form-message">Votre message</label>
-						<textarea name="message" id="form-message" type="text" ></textarea>
+						<textarea name="message" id="form-message" type="text" aria-label="Message"></textarea>
 					</div>
           <button>Envoyer</button>
 				</form>

@@ -6,7 +6,7 @@ async function getPhotographers() {
       return photographers;
     })
     .catch((error) => console.log(error));
-  return { photographers: [...response] };
+  return { photographers: response };
 }
 
 async function getMedias() {
@@ -17,5 +17,5 @@ async function getMedias() {
       return medias;
     })
     .catch((error) => console.log(error));
-  return { medias: [...response] };
+  return { medias: response };
 }

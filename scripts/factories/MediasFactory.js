@@ -44,6 +44,7 @@ const MediaFactory = (media, rightPhotographer) => {
 
     // Images
     const img = document.createElement("img");
+    img.setAttribute("alt", title)
     img.addEventListener("click", (e) => lightBox(e));
     if (image) {
       getMediaImage();
@@ -55,6 +56,7 @@ const MediaFactory = (media, rightPhotographer) => {
 
     // Video
     const vid = document.createElement("video");
+    vid.setAttribute("alt", title)
     vid.addEventListener("click", (e) => lightBox(e));
     if (video) {
       getMediaVideo();
