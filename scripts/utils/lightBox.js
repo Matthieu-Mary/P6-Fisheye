@@ -3,8 +3,11 @@ function getAllMedias() {
   return Array.prototype.slice.call(allMediasNodes);
 }
 
+const lightbox = document.querySelector(".lightbox");
+let lightBoxActive = false;
+
+// Display lightbox on DOM
 function lightBox(e) {
-  const lightbox = document.querySelector(".lightbox");
   // current card
   const { currentTarget } = e;
   const currentMedia = currentTarget.parentNode;
@@ -13,6 +16,7 @@ function lightBox(e) {
 
   lightbox.dataset.key = indexMedia;
   lightbox.classList.add("active");
+  lightBoxActive = true;
 
   createLightBox(lightbox);
 }
@@ -34,7 +38,7 @@ function createLightBox(lightbox) {
     mediaImage.setAttribute("src", currentImage.src);
     currentMedia.appendChild(mediaImage);
     // Delete first child beacause we need to display images one by one
-    if(currentMedia.childElementCount > 1) {
+    if (currentMedia.childElementCount > 1) {
       currentMedia.removeChild(currentMedia.firstChild);
     }
   } else {
@@ -42,14 +46,14 @@ function createLightBox(lightbox) {
     mediaVideo.classList.add("lightbox-video");
     mediaVideo.setAttribute("src", currentVideo.src);
     mediaVideo.setAttribute("controls", true);
-    if(currentMedia.childElementCount > 1) {
+    if (currentMedia.childElementCount > 1) {
       currentMedia.removeChild(currentMedia.firstChild);
     }
   }
 
   // CLOSE BUTTON
   const closeBtn = document.querySelector(".lightbox-close");
-  closeBtn.addEventListener("click", () => closeLightBox(lightbox));
+  closeBtn.addEventListener("click", () => closeLightBox());
 
   //   TITLE
   const title = document.querySelector(".lightbox h3");
@@ -73,11 +77,11 @@ function createLightBox(lightbox) {
   return { lightbox };
 }
 
-function closeLightBox(lightbox) {
+function closeLightBox() {
   lightbox.classList.remove("active");
+  lightBoxActive = false;
 }
 
-// LES DEUX FONCTIONS SONT APPELES LE DOUBLE DE CE QUI EST CLIQUE CAR CHEVRON RESTE
 function previousImage() {
   const lightbox = document.querySelector(".lightbox");
   let currentKey = parseInt(lightbox.dataset.key);
@@ -98,3 +102,18 @@ function nextImage() {
     createLightBox(lightbox);
   }
 }
+
+// For keyboard navigation when lightbox is open
+document.addEventListener("keydown", (e) => {
+  switch (e.key) {
+    case "Escape":
+      closeLightBox(lightbox);
+      break;
+    case "ArrowLeft":
+      previousImage();
+      break;
+    case "ArrowRight":
+      nextImage();
+      break;
+  }
+});

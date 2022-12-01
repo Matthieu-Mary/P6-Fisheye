@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link href="../styles/css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="../assets/favicon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/cd16bfafc5.js" crossorigin="anonymous"></script>
-    <title>Fisheye - photographe </title>
+    <link href="/styles/css/style.css" rel="stylesheet" type="text/css" />
+    <meta
+      name="description"
+      content="find out all the medias from the chosen photographer"
+    />
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="../assets/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/cd16bfafc5.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Fisheye - photographe</title>
   </head>
 
   <body>
@@ -20,7 +30,14 @@
     <main id="main">
       <!-- PHOTOGRAPHER HEADER CARD -->
       <section class="photographer-header">
-        <button class="contact_button" aria-label="Contact Me" aria-haspopup="dialog" onclick="displayModal()">Contactez-moi</button>
+        <button
+          class="contact_button"
+          aria-label="Contact Me"
+          aria-haspopup="dialog"
+          onclick="displayModal()"
+        >
+          Contactez-moi
+        </button>
       </section>
 
       <!-- SORT MEDIAS -->
@@ -30,11 +47,30 @@
           <button onclick="dropdown(event)">Popularité</button>
           <i class="fa-solid fa-chevron-down"></i>
           <ul class="dropdown-options">
-            <li onclick="selectedOption(event, 'Popularité')" data-value="popularity" role="option">Popularité</li>
-            <li onclick="selectedOption(event, 'Date')"  
-            data-value="date" role="option">Date</li>
-            <li onclick="selectedOption(event, 'Titre')" 
-             data-value="title" role="option">Titre</li>
+            <li
+              tabindex="0"
+              onclick="selectedOption(event, 'Popularité')"
+              data-value="popularity"
+              role="option"
+            >
+              Popularité
+            </li>
+            <li
+              tabindex="0"
+              onclick="selectedOption(event, 'Date')"
+              data-value="date"
+              role="option"
+            >
+              Date
+            </li>
+            <li
+              tabindex="0"
+              onclick="selectedOption(event, 'Titre')"
+              data-value="title"
+              role="option"
+            >
+              Titre
+            </li>
           </ul>
         </div>
       </div>
@@ -54,36 +90,56 @@
 
     <!-- MODAL -->
     <div id="contact_modal">
-			<div class="modal">
-				<header>
+      <div class="modal">
+        <header>
           <div class="header-content">
             <h2>Contactez-moi</h2>
             <h3>Mimi Keel</h3>
           </div>
-          <img src="../assets/icons/close.svg" onclick="closeModal()" />
+          <img
+            role="button"
+            src="../assets/icons/close.svg"
+            alt="close"
+            onclick="closeModal()"
+          />
         </header>
-				<form class="contact-form">
-					<div>
-						<label for="form-firstname">Prénom</label>
-						<input id="form-firstname" type="text" aria-label="First Name"/>
-						<label for="form-name">Nom</label>
-						<input id="form-name" type="text" aria-label="Last Name"/>
-						<label for="form-email">Email</label>
-						<input id="form-email" type="email" aria-label="Email"/>
-						<label for="form-message">Votre message</label>
-						<textarea name="message" id="form-message" type="text" aria-label="Message"></textarea>
-					</div>
+        <form class="contact-form">
+          <div>
+            <label for="form-firstname">Prénom</label>
+            <input id="form-firstname" type="text" aria-label="First Name" />
+            <label for="form-name">Nom</label>
+            <input id="form-name" type="text" aria-label="Last Name" />
+            <label for="form-email">Email</label>
+            <input id="form-email" type="email" aria-label="Email" />
+            <label for="form-message">Votre message</label>
+            <textarea
+              name="message"
+              id="form-message"
+              type="text"
+              aria-label="Message"
+            ></textarea>
+          </div>
           <button>Envoyer</button>
-				</form>
-			</div>
-		</div>
+        </form>
+      </div>
+    </div>
 
     <!-- LIGHTBOX -->
     <div class="lightbox">
       <div class="lightbox-content">
-        <i type="button" onclick="previousImage()" onkeydown="leftArrowKeyPressed(event) ? previousImage() : undefined" class="chevron-left fa-sharp fa-solid fa-chevron-left"></i>
+        <i
+          aria-label="Previous Image"
+          type="button"
+          onclick="previousImage()"
+          class="chevron-left fa-sharp fa-solid fa-chevron-left"
+        ></i>
         <div class="lightbox-media"></div>
-        <i type="button" onclick="nextImage()" class="chevron-right fa-sharp fa-solid fa-chevron-right"></i>
+        <i
+          aria-label="Next Image"
+          type="button"
+          onclick="nextImage()"
+          class="chevron-right fa-sharp fa-solid fa-chevron-right"
+        ></i>
         <i type="button" class="lightbox-close fa-sharp fa-solid fa-xmark"></i>
       </div>
       <h3></h3>
@@ -91,7 +147,7 @@
 
     <!-- API -->
     <script src="../scripts/api/Api.js"></script>
-    
+
     <!-- PHOTOGRAPHER FACTORY -->
     <script src="../scripts/factories/PhotographerFactory.js"></script>
 
@@ -115,6 +171,5 @@
 
     <!-- KEYBOARD CONTROLS -->
     <script src="../scripts/utils/keyBoardFunctions.js"></script>
-    
   </body>
 </html>
