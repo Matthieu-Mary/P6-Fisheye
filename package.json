@@ -4,7 +4,8 @@
   "description": "Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.",
   "main": "index.js",
   "scripts": {
-    "sass": "sass -w ./styles/scss/index.scss:./styles/css/style.css"
+    "sass": "sass -w ./styles/scss/index.scss:./styles/css/style.css",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,10 @@
   },
   "homepage": "https://github.com/Matthieu-Mary/P6-Fisheye#readme",
   "dependencies": {
+    "eslint": "^8.28.0",
     "sass": "^1.55.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.45.0"
   }
 }
