@@ -97,7 +97,7 @@
         <header>
           <div class="header-content">
             <h2>Contactez-moi</h2>
-            <h3>Mimi Keel</h3>
+            <h3></h3>
           </div>
           <img
             role="button"
@@ -109,17 +109,18 @@
         <form class="contact-form">
           <div>
             <label for="form-firstname">Prénom</label>
-            <input id="form-firstname" type="text" aria-label="First Name" />
+            <input id="form-firstname" type="text" aria-label="First Name" required />
             <label for="form-name">Nom</label>
-            <input id="form-name" type="text" aria-label="Last Name" />
+            <input id="form-name" type="text" aria-label="Last Name" required/>
             <label for="form-email">Email</label>
-            <input id="form-email" type="email" aria-label="Email" />
+            <input id="form-email" type="email" aria-label="Email" required/>
             <label for="form-message">Votre message</label>
             <textarea
               name="message"
               id="form-message"
               type="text"
               aria-label="Message"
+              required
             ></textarea>
           </div>
           <button>Envoyer</button>

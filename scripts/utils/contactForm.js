@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-function displayModal() {
+function displayModal(name) {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "flex";
+  document.querySelector("form #form-firstname").focus();
 }
 
 function closeModal() {
