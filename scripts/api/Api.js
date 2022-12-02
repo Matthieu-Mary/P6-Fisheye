@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 async function getPhotographers() {
   const response = await fetch("../data/photographers.json")
     .then((res) => res.json())

@@ -44,11 +44,12 @@
       <div class="sort-medias">
         <label for="drop-btn">Trier par</label>
         <div class="dropdown">
-          <button onclick="dropdown(event)">Popularité</button>
+          <button tabindex="0" focus onclick="dropdown(event)">Popularité</button>
           <i class="fa-solid fa-chevron-down"></i>
           <ul class="dropdown-options">
             <li
               tabindex="0"
+              onkeydown="enterKeyPressed(event) ? selectedOption(event, 'Popularité') : undefined"
               onclick="selectedOption(event, 'Popularité')"
               data-value="popularity"
               role="option"
@@ -57,6 +58,7 @@
             </li>
             <li
               tabindex="0"
+              onkeydown="enterKeyPressed(event) ? selectedOption(event, 'Date') : undefined"
               onclick="selectedOption(event, 'Date')"
               data-value="date"
               role="option"
@@ -65,6 +67,7 @@
             </li>
             <li
               tabindex="0"
+              onkeydown="enterKeyPressed(event) ? selectedOption(event, 'Titre') : undefined"
               onclick="selectedOption(event, 'Titre')"
               data-value="title"
               role="option"

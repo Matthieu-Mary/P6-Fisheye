@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 function getAllMedias() {
     const allMediasNodes = document.querySelectorAll(".media-card");
     return Array.prototype.slice.call(allMediasNodes);
@@ -12,6 +13,9 @@ function dropdown(event) {
     } else {
         button.setAttribute('aria-expanded', false);
     }
+
+    // Add setTimeout because we have to leave time to dropdown menu to toggle his "active" class
+    setTimeout(() => button.focus(), 10)
 }
 
 function selectedOption(event, name) {
@@ -21,7 +25,9 @@ function selectedOption(event, name) {
     button.textContent = name;
     dropdown.classList.toggle('active');
 
-    sortMediasBySelectedOption(name)
+    sortMediasBySelectedOption(name);
+
+    setTimeout(() => button.focus(), 10)
 
 }
 
@@ -36,7 +42,7 @@ function sortMediasBySelectedOption(name) {
             break;
         case "Date":
             // From most recent to oldest
-            allMedias.sort((media, nextMedia) =>  nextMedia.dataset.date.localeCompare(media.dataset.date))
+            allMedias.sort((media, nextMedia) =>  nextMedia.dataset.date.localeCompare(media.dataset.date));
             break;
         case "Titre":
             // Alphabetic sort

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 // Display photographers card on Homepage.
 function photographerHomepage(data) {
   const { name, id, city, country, tagline, price, portrait } = data;
