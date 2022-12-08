@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-undef */
+
 const MediaFactory = (media, rightPhotographer) => {
   const { title, image, video, likes, date } = media;
   
