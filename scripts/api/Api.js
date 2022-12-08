@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 async function getPhotographers() {
-  const response = await fetch("../data/photographers.json")
+  const response = await fetch("data/photographers.json")
     .then((res) => res.json())
     .then((data) => {
       const photographers = data.photographers;
@@ -11,7 +11,7 @@ async function getPhotographers() {
 }
 
 async function getMedias() {
-  const response = await fetch("../data/photographers.json")
+  const response = await fetch("data/photographers.json")
     .then((res) => res.json())
     .then((data) => {
       const medias = data.media;
