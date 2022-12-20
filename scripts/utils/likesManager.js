@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 function increaseLikesCard(e, rightPhotographer) { 
   const { currentTarget } = e;
   if (!currentTarget.hasAttribute("liked")) {

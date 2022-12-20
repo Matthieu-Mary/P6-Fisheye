@@ -1,10 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-function getAllMedias() {
-  const allMediasNodes = document.querySelectorAll(".media-card");
-  return Array.prototype.slice.call(allMediasNodes);
-}
-
+// Get elements from DOM 
+const mainContent = document.getElementById("main");
 const lightbox = document.querySelector(".lightbox");
+const closeBtn = document.querySelector(".lightbox-close");
+const title = document.querySelector(".lightbox h3");
 let lightBoxActive = false;
 
 // Display lightbox on DOM
@@ -17,12 +15,14 @@ function lightBox(e) {
 
   lightbox.dataset.key = indexMedia;
   lightbox.classList.add("active");
+  lightbox.setAttribute("aria-hidden", false);
+  mainContent.setAttribute("aria-hidden", true);
   lightBoxActive = true;
 
   createLightBox(lightbox);
 }
 
-function createLightBox(lightbox) {
+function createLightBox() {
   // GLOBAL
   const allMedias = getAllMedias();
   const currentKey = lightbox.dataset.key;
@@ -53,11 +53,9 @@ function createLightBox(lightbox) {
   }
 
   // CLOSE BUTTON
-  const closeBtn = document.querySelector(".lightbox-close");
   closeBtn.addEventListener("click", () => closeLightBox());
-
+  
   //   TITLE
-  const title = document.querySelector(".lightbox h3");
   title.textContent = currentTitle;
 
   // Apply black color to chevron if first or last image displayed
@@ -80,6 +78,8 @@ function createLightBox(lightbox) {
 
 function closeLightBox() {
   lightbox.classList.remove("active");
+  lightbox.setAttribute("aria-hidden", true);
+  mainContent.setAttribute("aria-hidden", false);
   lightBoxActive = false;
 }
 

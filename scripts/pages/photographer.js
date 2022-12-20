@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 // ---------- GET PHOTOGRAPHER ID ----------
 const getId = async () => {
   const params = new URL(document.location).searchParams;

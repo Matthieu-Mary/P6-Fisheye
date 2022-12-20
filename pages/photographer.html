@@ -27,7 +27,7 @@
       </a>
     </header>
 
-    <main id="main">
+    <main id="main" aria-hidden="false">
       <!-- PHOTOGRAPHER HEADER CARD -->
       <section class="photographer-header">
         <button
@@ -89,10 +89,12 @@
         </div>
         <span class="price"></span>
       </div>
-    </main>
 
+      
+    </main>
+    
     <!-- MODAL -->
-    <div id="contact_modal">
+    <div id="contact_modal" aria-hidden="true" role="dialog">
       <div class="modal">
         <header>
           <div class="header-content">
@@ -104,6 +106,7 @@
             src="../assets/icons/close.svg"
             alt="close"
             onclick="closeModal()"
+            onkeydown=""
           />
         </header>
         <form class="contact-form">
@@ -129,11 +132,12 @@
     </div>
 
     <!-- LIGHTBOX -->
-    <div class="lightbox">
+    <div class="lightbox" role="dialog" aria-hidden="true">
       <div class="lightbox-content">
         <i
           aria-label="Previous Image"
           type="button"
+          role="link"
           onclick="previousImage()"
           class="chevron-left fa-sharp fa-solid fa-chevron-left"
         ></i>
@@ -141,23 +145,24 @@
         <i
           aria-label="Next Image"
           type="button"
+          role="link"
           onclick="nextImage()"
           class="chevron-right fa-sharp fa-solid fa-chevron-right"
         ></i>
         <i type="button" class="lightbox-close fa-sharp fa-solid fa-xmark"></i>
       </div>
-      <h3></h3>
+      <h3 aria-hidden="true"></h3>
     </div>
-
+    
     <!-- API -->
     <script src="../scripts/api/Api.js"></script>
-
+    
     <!-- PHOTOGRAPHER FACTORY -->
     <script src="../scripts/factories/PhotographerFactory.js"></script>
-
+    
     <!-- MEDIAS FACTORY -->
     <script src="../scripts/factories/MediasFactory.js"></script>
-
+    
     <!-- DROP-DOWN LIST -->
     <script src="../scripts/utils/dropdownList.js"></script>
 

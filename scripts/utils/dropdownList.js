@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 function getAllMedias() {
     const allMediasNodes = document.querySelectorAll(".media-card");
     return Array.prototype.slice.call(allMediasNodes);

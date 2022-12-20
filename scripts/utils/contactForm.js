@@ -1,13 +1,16 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-function displayModal(name) {
+function displayModal() {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "flex";
+  modal.setAttribute("aria-hidden", false);
+  mainContent.setAttribute("aria-hidden", true);
   document.querySelector("form #form-firstname").focus();
 }
 
 function closeModal() {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "none";
+  modal.setAttribute("aria-hidden", true);
+  mainContent.setAttribute("aria-hidden", false);
 }
 
 const contactForm = document.querySelector(".contact-form");
