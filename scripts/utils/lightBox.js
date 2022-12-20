@@ -37,6 +37,7 @@ function createLightBox() {
   if (allMedias[currentKey].firstChild.src.includes(".jpg")) {
     mediaImage.classList.add("lightbox-img");
     mediaImage.setAttribute("src", currentImage.src);
+    mediaImage.setAttribute("alt", currentTitle);
     currentMedia.appendChild(mediaImage);
     // Delete first child beacause we need to display images one by one
     if (currentMedia.childElementCount > 1) {
@@ -46,6 +47,7 @@ function createLightBox() {
     currentMedia.appendChild(mediaVideo);
     mediaVideo.classList.add("lightbox-video");
     mediaVideo.setAttribute("src", currentVideo.src);
+    mediaVideo.setAttribute("title", currentTitle);
     mediaVideo.setAttribute("controls", true);
     if (currentMedia.childElementCount > 1) {
       currentMedia.removeChild(currentMedia.firstChild);
