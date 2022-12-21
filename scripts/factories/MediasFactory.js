@@ -37,8 +37,10 @@ const MediaFactory = (media, rightPhotographer) => {
     likesNumber.classList.add("likes-number");
     likesNumber.textContent = likes;
     
-    const heart = document.createElement("i");
-    heart.innerHTML = `<i class="fa-sharp fa-solid fa-heart"></i>`;
+    const heart = document.createElement("img");
+    heart.setAttribute("src", "../assets/icons/heart.svg");
+    heart.setAttribute("alt", "likes button");
+    heart.setAttribute("role", "button");
     
     cardLikes.appendChild(likesNumber);
     cardLikes.appendChild(heart);
@@ -83,7 +85,7 @@ const MediaFactory = (media, rightPhotographer) => {
   return { createMediaCard };
 };
 
-// ENCART
+// ENCART 
 function createEncart(rightPhotographer, totalLikes) {
   const { price } = rightPhotographer;
 

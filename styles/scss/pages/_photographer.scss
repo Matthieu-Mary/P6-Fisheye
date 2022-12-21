@@ -179,14 +179,11 @@
                     margin-right: 5px;
                     font-weight: bold;
                 }
-                i {
+                img {
                     cursor: pointer;
                     &.active {
-                        font-size: 25px;
-                        opacity: 1;
-                    }
-                    &.unactive {
-                        font-size: 20px;
+                        width: 22px;
+                        height: 21px;
                     }
                 }
             }
@@ -224,8 +221,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        img {
+            width: 22px;
+            height: 25px;
+        }
         p {
-            margin-right: 5px;
+            margin-right: 6px;
         }
     }
 }

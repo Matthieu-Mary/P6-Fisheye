@@ -45,7 +45,7 @@
         <label for="drop-btn">Trier par</label>
         <div class="dropdown">
           <button tabindex="0" focus onclick="dropdown(event)">Popularité</button>
-          <i class="fa-solid fa-chevron-down"></i>
+          <img src="../assets/icons/dropdown-icon.svg" alt="dropdown icon" role="button">
           <ul class="dropdown-options">
             <li
               tabindex="0"
@@ -85,11 +85,10 @@
       <div class="encart">
         <div class="total-likes">
           <p></p>
-          <i class="fa-sharp fa-solid fa-heart"></i>
+          <img src="../assets//icons/heart-encart.svg" alt="heart encart"></img>
         </div>
         <span class="price"></span>
       </div>
-
       
     </main>
     
@@ -106,7 +105,6 @@
             src="../assets/icons/close.svg"
             alt="close"
             onclick="closeModal()"
-            onkeydown=""
           />
         </header>
         <form class="contact-form">
@@ -134,22 +132,22 @@
     <!-- LIGHTBOX -->
     <div class="lightbox" role="dialog" aria-hidden="true">
       <div class="lightbox-content">
-        <i
-          aria-label="Previous Image"
+        <img
+          src="../assets/icons/chevron-left.svg"
+          alt="Previous Image"
           type="button"
           role="link"
           onclick="previousImage()"
-          class="chevron-left fa-sharp fa-solid fa-chevron-left"
-        ></i>
+        ></img>
         <div class="lightbox-media"></div>
-        <i
-          aria-label="Next Image"
+        <img
+          src="../assets/icons/chevron-right.svg"
+          alt="Next Image"
           type="button"
           role="link"
           onclick="nextImage()"
-          class="chevron-right fa-sharp fa-solid fa-chevron-right"
-        ></i>
-        <i type="button" class="lightbox-close fa-sharp fa-solid fa-xmark"></i>
+        ></img>
+        <img src="../assets/icons/close-lightbox.png" alt="close lightbox" type="button" class="lightbox-close"></img>
       </div>
       <h3></h3>
     </div>

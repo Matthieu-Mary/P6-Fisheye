@@ -233,15 +233,12 @@
   margin-right: 5px;
   font-weight: bold;
 }
-.medias .media-card .media-infos .card-likes i {
+.medias .media-card .media-infos .card-likes img {
   cursor: pointer;
 }
-.medias .media-card .media-infos .card-likes i.active {
-  font-size: 25px;
-  opacity: 1;
-}
-.medias .media-card .media-infos .card-likes i.unactive {
-  font-size: 20px;
+.medias .media-card .media-infos .card-likes img.active {
+  width: 22px;
+  height: 21px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -274,8 +271,12 @@
   justify-content: center;
   align-items: center;
 }
+.encart .total-likes img {
+  width: 22px;
+  height: 25px;
+}
 .encart .total-likes p {
-  margin-right: 5px;
+  margin-right: 6px;
 }
 
 @media screen and (max-width: 767px) {
@@ -502,7 +503,7 @@ form button {
   position: absolute;
   top: 0;
   right: 1%;
-  color: var(--primary-2);
+  color: var(--primary-2) !important;
   font-size: 3rem;
   cursor: pointer;
 }
@@ -555,7 +556,7 @@ form button {
   font-weight: inherit;
   cursor: pointer;
 }
-.sort-medias .dropdown i {
+.sort-medias .dropdown img {
   position: absolute;
   right: 20px;
   top: 20px;
@@ -597,7 +598,7 @@ form button {
 .sort-medias .dropdown.active {
   border-radius: 5px 5px 0 0;
 }
-.sort-medias .dropdown.active i {
+.sort-medias .dropdown.active img {
   transform: rotate(180deg);
 }
 .sort-medias .dropdown.active ul {
