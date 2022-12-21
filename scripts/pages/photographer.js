@@ -5,7 +5,7 @@ const getId = () => {
   return id;
 };
 
-const getRightPhotographer = async (photographers) => {
+const getRightPhotographer = (photographers) => {
   const id = getId();
   // Use Filter with id to find right photographer and display it in header div
   const result = photographers.filter((photographer) => photographer.id == id);
