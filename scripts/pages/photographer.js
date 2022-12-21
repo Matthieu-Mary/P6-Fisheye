@@ -1,12 +1,12 @@
 // ---------- GET PHOTOGRAPHER ID ----------
-const getId = async () => {
+const getId = () => {
   const params = new URL(document.location).searchParams;
   const id = params.get("id");
   return id;
 };
 
 const getRightPhotographer = async (photographers) => {
-  const id = await getId();
+  const id = getId();
   // Use Filter with id to find right photographer and display it in header div
   const result = photographers.filter((photographer) => photographer.id == id);
 
@@ -22,7 +22,7 @@ async function displayPhotographerCard(photographers) {
 
 // ---------- MEDIAS SECTION ----------
 async function getRightMedias(medias) {
-  const id = await getId();
+  const id = getId();
   const results = medias.filter((media) => media.photographerId == id);
   return results;
 }
