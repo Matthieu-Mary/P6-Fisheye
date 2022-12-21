@@ -3,7 +3,6 @@ const mainContent = document.getElementById("main");
 const lightbox = document.querySelector(".lightbox");
 const closeBtn = document.querySelector(".lightbox-close");
 const title = document.querySelector(".lightbox h3");
-let lightBoxActive = false;
 
 // Display lightbox on DOM
 function lightBox(e) {
@@ -17,7 +16,6 @@ function lightBox(e) {
   lightbox.classList.add("active");
   lightbox.setAttribute("aria-hidden", false);
   mainContent.setAttribute("aria-hidden", true);
-  lightBoxActive = true;
 
   createLightBox(lightbox);
 }
@@ -82,7 +80,6 @@ function closeLightBox() {
   lightbox.classList.remove("active");
   lightbox.setAttribute("aria-hidden", true);
   mainContent.setAttribute("aria-hidden", false);
-  lightBoxActive = false;
 }
 
 function previousImage() {
